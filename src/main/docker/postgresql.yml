@@ -1,0 +1,12 @@
+version: '2'
+services:
+    ponto-postgresql:
+        container_name: ponto-postgresql
+        image: postgres:9.5.2
+        # volumes:
+        #     - ~/volumes/jhipster/ponto/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=ponto
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

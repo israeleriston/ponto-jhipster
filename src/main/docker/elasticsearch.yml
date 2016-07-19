@@ -1,0 +1,10 @@
+version: '2'
+services:
+    ponto-elasticsearch:
+        container_name: ponto-elasticsearch
+        image: elasticsearch:1.7.5
+        # volumes:
+        #     - ~/volumes/jhipster/ponto/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9200:9200
+            - 9300:9300
