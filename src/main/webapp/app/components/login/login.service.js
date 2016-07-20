@@ -5,32 +5,24 @@
         .module('pontoApp')
         .factory('LoginService', LoginService);
 
-    LoginService.$inject = ['$uibModal'];
+    LoginService.$inject = ['$state'];
 
-    function LoginService ($uibModal) {
+    function LoginService ($state) {
         var service = {
             open: open
         };
 
         var modalInstance = null;
         var resetModal = function () {
+            console.log('chamou aqui no login.service ao chamar o reset Modal')
             modalInstance = null;
         };
 
         return service;
 
         function open () {
-            if (modalInstance !== null) return;
-            modalInstance = $uibModal.open({
-                animation: true,
-                templateUrl: 'app/components/login/login.html',
-                controller: 'LoginController',
-                controllerAs: 'vm'
-            });
-            modalInstance.result.then(
-                resetModal,
-                resetModal
-            );
+            console.log('chamou aqui no login.service ao chamar o open')
+            $state.go('login');
         }
     }
 })();

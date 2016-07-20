@@ -5,9 +5,9 @@
         .module('pontoApp')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth', '$uibModalInstance'];
+    LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth'];
 
-    function LoginController ($rootScope, $state, $timeout, Auth, $uibModalInstance) {
+    function LoginController ($rootScope, $state, $timeout, Auth) {
         var vm = this;
 
         vm.authenticationError = false;
@@ -29,7 +29,6 @@
                 rememberMe: true
             };
             vm.authenticationError = false;
-            $uibModalInstance.dismiss('cancel');
         }
 
         function login (event) {
@@ -40,13 +39,23 @@
                 rememberMe: vm.rememberMe
             }).then(function () {
                 vm.authenticationError = false;
-                $uibModalInstance.close();
-                if ($state.current.name === 'register' || $state.current.name === 'activate' ||
-                    $state.current.name === 'finishReset' || $state.current.name === 'requestReset') {
+                // if ($state.current.name === 'register' || $state.current.name === 'activate' ||
+                //     $state.current.name === 'finishReset' || $state.current.name === 'requestReset') {
+                //     $state.go('home');
+                // }
+                if ($state.current.name === 'register') {
+                    console.log('entrou no register login.controller para ir para o home')
+                    $state.go('home');
+                }
+
+                /** usado para verifique as credenciais e autenticar o login e redirecionar para o home **/
+                if($rootScope.$broadcast('authenticationSuccess')){
+                    console.log('entrou no authenticationSucess do login.controller e redirecionou para o home')
                     $state.go('home');
                 }
 
                 $rootScope.$broadcast('authenticationSuccess');
+
 
                 // previousState was set in the authExpiredInterceptor before being redirected to login modal.
                 // since login is succesful, go to stored previousState and clear previousState
@@ -61,12 +70,10 @@
         }
 
         function register () {
-            $uibModalInstance.dismiss('cancel');
             $state.go('register');
         }
 
         function requestResetPassword () {
-            $uibModalInstance.dismiss('cancel');
             $state.go('requestReset');
         }
     }

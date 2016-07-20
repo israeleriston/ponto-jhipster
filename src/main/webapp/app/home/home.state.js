@@ -12,7 +12,7 @@
             parent: 'app',
             url: '/',
             data: {
-                authorities: []
+                authorities: ['ROLE_USER'] // TODO usado para requerer acesso para o usuário que não esteja autenticado.
             },
             views: {
                 'content@': {

@@ -30,9 +30,9 @@
         }
 
         function logout() {
-            collapseNavbar();
+            // collapseNavbar();
             Auth.logout();
-            $state.go('home');
+            $state.go('login');
         }
 
         function toggleNavbar() {
