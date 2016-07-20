@@ -5,6 +5,15 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720021950_added_entity_Pessoa.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720022212_added_entity_Telefone.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720022430_added_entity_Dia.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720022707_added_entity_Hora.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720023150_added_entity_Feriado.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20160720022212_added_entity_constraints_Telefone.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720022430_added_entity_constraints_Dia.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720022707_added_entity_constraints_Hora.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720023150_added_entity_constraints_Feriado.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

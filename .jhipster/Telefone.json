@@ -1,0 +1,29 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [],
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "tipoTelefone",
+            "fieldType": "TipoTelefone",
+            "fieldValues": "RESIDENCIAL,CELULAR",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160720022212",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "telefone",
+    "pagination": "pagination"
+}

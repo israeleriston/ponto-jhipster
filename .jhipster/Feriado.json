@@ -1,0 +1,19 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "dia",
+            "otherEntityName": "dia",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [],
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "feriado"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20160720023150",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "feriado",
+    "pagination": "pagination"
+}

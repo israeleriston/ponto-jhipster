@@ -1,0 +1,18 @@
+
+<div>
+    <h2><span>Feriado</span> {{vm.feriado.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Dia</span></dt>
+        <dd>
+            <a ui-sref="dia-detail({id:vm.feriado.dia.id})">{{vm.feriado.dia.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

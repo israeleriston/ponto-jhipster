@@ -1,0 +1,28 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [],
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "feriado",
+            "fieldType": "Boolean",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160720022430",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "dia",
+    "pagination": "pagination"
+}

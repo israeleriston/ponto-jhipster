@@ -1,0 +1,29 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "dia",
+            "otherEntityName": "dia",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [],
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "data",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "tipoHora",
+            "fieldType": "TipoHora",
+            "fieldValues": "PRIMEIRA_ENTRADA,PRIMEIRA_SAIDA,SEGUNDA_ENTRADA,SEGUNDA_SAIDA",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160720022707",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "hora",
+    "pagination": "pagination"
+}

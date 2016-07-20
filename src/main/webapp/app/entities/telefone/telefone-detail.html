@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span>Telefone</span> {{vm.telefone.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Numero</span></dt>
+        <dd>
+            <span>{{vm.telefone.numero}}</span>
+        </dd>
+        <dt><span>Tipo Telefone</span></dt>
+        <dd>
+            <span translate="{{'pontoApp.TipoTelefone.' + vm.telefone.tipoTelefone}}">{{vm.telefone.tipoTelefone}}</span>
+        </dd>
+        <dt><span>Pessoa</span></dt>
+        <dd>
+            <a ui-sref="pessoa-detail({id:vm.telefone.pessoa.id})">{{vm.telefone.pessoa.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>
