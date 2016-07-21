@@ -14,9 +14,13 @@
             data: {
                 authorities: ['ROLE_USER'] // TODO usado para requerer acesso para o usuário que não esteja autenticado.
             },
+
             views: {
+                'navbar@': {
+                    templateUrl: '/app/components/navbar/no-navbar.html'
+                },
                 'content@': {
-                    templateUrl: 'app/home/home.html',
+                    templateUrl: '/app/home/home.html',
                     controller: 'HomeController',
                     controllerAs: 'vm'
                 },

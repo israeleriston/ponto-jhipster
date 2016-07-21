@@ -16,18 +16,52 @@
     <!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
     <link rel="stylesheet" href="resource/css/theme-default.css">
+    <!-- START PLUGINS -->
+    <script type="text/javascript" src="resource/js/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="resource/js/plugins/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="resource/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- END PLUGINS -->
+
+    <!-- START THIS PAGE PLUGINS-->
+    <script type='text/javascript' src='resource/js/plugins/icheck/icheck.min.js'></script>
+    <script type="text/javascript" src="resource/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+    <script type="text/javascript" src="resource/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+
+    <script type="text/javascript" src="resource/js/plugins/morris/raphael-min.js"></script>
+    <script type="text/javascript" src="resource/js/plugins/morris/morris.min.js"></script>
+    <script type="text/javascript" src="resource/js/plugins/rickshaw/d3.v3.js"></script>
+    <script type="text/javascript" src="resource/js/plugins/rickshaw/rickshaw.min.js"></script>
+    <script type='text/javascript' src='resource/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
+    <script type='text/javascript' src='resource/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>
+    <script type='text/javascript' src='resource/js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+    <script type="text/javascript" src="resource/js/plugins/owl/owl.carousel.min.js"></script>
+
+    <script type="text/javascript" src="resource/js/plugins/moment.min.js"></script>
+    <script type="text/javascript" src="resource/js/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- END THIS PAGE PLUGINS-->
+
+    <!-- START TEMPLATE -->
+    <script type="text/javascript" src="resource/js/settings.js"></script>
+
+    <script type="text/javascript" src="resource/js/plugins.js"></script>
+    <script type="text/javascript" src="resource/js/actions.js"></script>
+
+    <script type="text/javascript" src="resource/js/demo_dashboard.js"></script>
+    <!-- END TEMPLATE -->
+    <!-- END SCRIPTS -->
     <!-- endbuild -->
 </head>
 <body  >
     <!--[if lt IE 9]>
     <![endif]-->
-    <div ui-view="menu" ng-cloak></div>
+
     <div ui-view="navbar" ng-cloak></div>
         <div ui-view="content">
-            <!-- Angular views -->
+            <div ui-view="menu" ng-cloak></div>
+            <div ui-view="footer" ng-cloak>
         </div>
 
-        <div ui-view="footer" ng-cloak>
+
 
         </div>
 
