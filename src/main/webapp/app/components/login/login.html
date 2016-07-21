@@ -1,32 +1,54 @@
-<div class="modal-header">
-</div>
-<div class="modal-body">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+<style type="text/css">
+    .footer-login, html {
+        background: url("../../../resource/img/bg.png") left top repeat #1b1e24;
+        width: 100%;
+        min-height: 100%;
+        padding: 0px;
+        margin: 0px;
+        color: #1b1e24;
+        position: relative;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        overflow-x: hidden;
+    }
+    /*.no-footer-login, html {*/
+    /*background: #f5f5f5 url('../img/bg.png') left top repeat*/
+    /*}*/
+</style>
+<div class="login-container footer-login">
+
+    <div class="login-box animated fadeInDown" >
+        <div class="login-body">
             <div class="alert alert-danger" ng-show="vm.authenticationError">
                 <strong>Falha na autenticação!</strong> Por favor cheque suas credenciais e tente novamente.
             </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <form class="form" role="form" ng-submit="vm.login($event)">
+            <div class="login-title"><strong>Bem vindo</strong> informe usuário e senha</div>
+            <form class="form-horizontal"  ng-submit="vm.login($event)">
                 <div class="form-group">
-                    <label for="username">Login</label>
-                    <input type="text" class="form-control" id="username" placeholder="Usuário" ng-model="vm.username">
+                    <div class="col-md-12">
+                        <input type="text" id="username" class="form-control" placeholder="Usuário"
+                               ng-model="vm.username"/>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Senha"
-                           ng-model="vm.password">
+                    <div class="col-md-12">
+                        <input id="password" type="password" class="form-control" placeholder="Senha"
+                               ng-model="vm.password"/>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-info btn-block">Entrar</button>
+                    </div>
+                </div>
             </form>
-            <p></p>
-            <div class="alert alert-warning">
-                <a class="alert-link" href="" ng-click="vm.requestResetPassword()">Esqueceu sua senha?</a>
-            </div>
-            <div class="alert alert-warning">
-                Não tem conta? <a class="alert-link" href="" ng-click="vm.register()">Registrar uma nova conta</a>
+        </div>
+        <div class="login-footer">
+            <div class="pull-left">
+                &copy; 2016 PontoEletronico MGA
             </div>
         </div>
     </div>
+
 </div>
+

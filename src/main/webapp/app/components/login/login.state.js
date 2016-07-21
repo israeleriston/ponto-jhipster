@@ -30,6 +30,9 @@
 
                     'navbar@': {
                         templateUrl: '/app/components/navbar/no-navbar.html'
+                    },
+                    'footer@':{
+                        templateUrl: '/app/components/footer/footer-login.html'
                     }
                 }
 

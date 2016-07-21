@@ -19,6 +19,10 @@
                     templateUrl: 'app/home/home.html',
                     controller: 'HomeController',
                     controllerAs: 'vm'
+                },
+
+                'footer@': {
+                    templateUrl: '/app/components/footer/no-footer.html'
                 }
             }
         });
