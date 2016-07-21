@@ -5,9 +5,9 @@
         .module('pontoApp')
         .controller('PessoaDialogController', PessoaDialogController);
 
-    PessoaDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Pessoa'];
+    PessoaDialogController.$inject = ['$timeout', '$scope', '$stateParams', 'entity', 'Pessoa','$state'];
 
-    function PessoaDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Pessoa) {
+    function PessoaDialogController ($timeout, $scope, $stateParams, entity, Pessoa,$state) {
         var vm = this;
 
         vm.pessoa = entity;
@@ -19,7 +19,7 @@
         });
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
+            redirecionar();
         }
 
         function save () {
@@ -29,11 +29,15 @@
             } else {
                 Pessoa.save(vm.pessoa, onSaveSuccess, onSaveError);
             }
+            redirecionar();
+        }
+
+        function redirecionar() {
+            $state.go('pessoa');
         }
 
         function onSaveSuccess (result) {
             $scope.$emit('pontoApp:pessoaUpdate', result);
-            $uibModalInstance.close(result);
             vm.isSaving = false;
         }
 
