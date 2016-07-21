@@ -33,9 +33,11 @@
         }
 
         function redirecionar() {
-            $state.go('pessoa');
+            $state.go('pessoa', null , {
+                reload: true
+            });
         }
-
+true
         function onSaveSuccess (result) {
             $scope.$emit('pontoApp:pessoaUpdate', result);
             vm.isSaving = false;

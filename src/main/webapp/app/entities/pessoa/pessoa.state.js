@@ -72,6 +72,15 @@
                 data: {
                     authorities: ['ROLE_USER']
                 },
+                
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/pessoa/pessoa-dialog.html',
+                        controller: 'PessoaDialogController',
+                        controllerAs: 'vm'
+                    }
+                },
+                
                 resolve: {
                     entity: function () {
                         return {
@@ -81,13 +90,6 @@
                             inscricao: null,
                             id: null
                         };
-                    }
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'app/entities/pessoa/pessoa-dialog.html',
-                        controller: 'PessoaDialogController',
-                        controllerAs: 'vm'
                     }
                 }
             })
