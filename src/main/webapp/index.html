@@ -9,72 +9,54 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css content/css/vendor.css -->
     <!-- bower:css -->
-    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">-->
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" href="resource/css/fontawesome/font-awesome.min.css">
     <!-- endinject -->
     <!-- endbuild -->
     <!-- build:css content/css/main.css -->
-    <link rel="stylesheet" href="content/css/main.css">
     <link rel="stylesheet" href="resource/css/theme-default.css">
-    <!-- START PLUGINS -->
-    <script type="text/javascript" src="resource/js/plugins/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="resource/js/plugins/jquery/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="resource/js/plugins/bootstrap/bootstrap.min.js"></script>
-    <!-- END PLUGINS -->
+    <!--&lt;!&ndash; START PLUGINS &ndash;&gt;-->
+    <!--<script type="text/javascript" src="resource/js/plugins/jquery/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="resource/js/plugins/jquery/jquery-ui.min.js"></script>-->
+    <!--<script type="text/javascript" src="resource/js/plugins/bootstrap/bootstrap.min.js"></script>-->
+    <!--&lt;!&ndash; END PLUGINS &ndash;&gt;-->
 
-    <!-- START THIS PAGE PLUGINS-->
-    <script type='text/javascript' src='resource/js/plugins/icheck/icheck.min.js'></script>
-    <script type="text/javascript" src="resource/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-    <script type="text/javascript" src="resource/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+    <!--&lt;!&ndash; START THIS PAGE PLUGINS&ndash;&gt;-->
+    <!--<script type='text/javascript' src='resource/js/plugins/icheck/icheck.min.js'></script>-->
+    <!--<script type="text/javascript" src="resource/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>-->
+    <!--<script type="text/javascript" src="resource/js/plugins/scrolltotop/scrolltopcontrol.js"></script>-->
 
-    <script type="text/javascript" src="resource/js/plugins/morris/raphael-min.js"></script>
-    <script type="text/javascript" src="resource/js/plugins/morris/morris.min.js"></script>
-    <script type="text/javascript" src="resource/js/plugins/rickshaw/d3.v3.js"></script>
-    <script type="text/javascript" src="resource/js/plugins/rickshaw/rickshaw.min.js"></script>
-    <script type='text/javascript' src='resource/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
-    <script type='text/javascript' src='resource/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>
-    <script type='text/javascript' src='resource/js/plugins/bootstrap/bootstrap-datepicker.js'></script>
-    <script type="text/javascript" src="resource/js/plugins/owl/owl.carousel.min.js"></script>
+    <!--<script type="text/javascript" src="resource/js/plugins/morris/raphael-min.js"></script>-->
+    <!--<script type="text/javascript" src="resource/js/plugins/morris/morris.min.js"></script>-->
+    <!--<script type="text/javascript" src="resource/js/plugins/rickshaw/d3.v3.js"></script>-->
+    <!--<script type="text/javascript" src="resource/js/plugins/rickshaw/rickshaw.min.js"></script>-->
+    <!--<script type='text/javascript' src='resource/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>-->
+    <!--<script type='text/javascript' src='resource/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>-->
+    <!--<script type='text/javascript' src='resource/js/plugins/bootstrap/bootstrap-datepicker.js'></script>-->
+    <!--<script type="text/javascript" src="resource/js/plugins/owl/owl.carousel.min.js"></script>-->
 
-    <script type="text/javascript" src="resource/js/plugins/moment.min.js"></script>
-    <script type="text/javascript" src="resource/js/plugins/daterangepicker/daterangepicker.js"></script>
-    <!-- END THIS PAGE PLUGINS-->
+    <!--<script type="text/javascript" src="resource/js/plugins/moment.min.js"></script>-->
+    <!--<script type="text/javascript" src="resource/js/plugins/daterangepicker/daterangepicker.js"></script>-->
+    <!--&lt;!&ndash; END THIS PAGE PLUGINS&ndash;&gt;-->
 
-    <!-- START TEMPLATE -->
-    <script type="text/javascript" src="resource/js/settings.js"></script>
+     <!--&lt;!&ndash;START TEMPLATE UTILIZADO PARA TROCAR AS CONFIGURACOES DO TEMPLATE&ndash;&gt;-->
+    <!--<script type="text/javascript" src="resource/js/settings.js"></script>-->
 
-    <script type="text/javascript" src="resource/js/plugins.js"></script>
-    <script type="text/javascript" src="resource/js/actions.js"></script>
+    <!--<script type="text/javascript" src="resource/js/plugins.js"></script>-->
+    <!--<script type="text/javascript" src="resource/js/actions.js"></script>-->
 
-    <script type="text/javascript" src="resource/js/demo_dashboard.js"></script>
+    <!--<script type="text/javascript" src="resource/js/demo_dashboard.js"></script>-->
     <!-- END TEMPLATE -->
     <!-- END SCRIPTS -->
     <!-- endbuild -->
 </head>
-<body  >
-    <!--[if lt IE 9]>
-    <![endif]-->
+<body class="page-container">
 
-    <div ui-view="navbar" ng-cloak></div>
-        <div ui-view="content">
-            <div ui-view="menu" ng-cloak></div>
-            <div ui-view="footer" ng-cloak>
-        </div>
-
-
-
-        </div>
-
-
-    <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
-    <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>-->
+    <div ui-view="menu" ng-cloak></div>
+    <!-- utilizado 50 px de height por causa do ui.router que de alguma forma nao permite aninhar ui-views-->
+    <div ui-view="navbar" ng-cloak ></div>
+    <div ui-view="content" ng-cloak></div>
+    <div ui-view="footer" ng-cloak></div>
 
     <!-- build:js app/vendor.js -->
     <!-- bower:js -->

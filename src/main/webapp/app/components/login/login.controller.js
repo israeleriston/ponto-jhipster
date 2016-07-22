@@ -51,7 +51,9 @@
                 /** usado para verifique as credenciais e autenticar o login e redirecionar para o home **/
                 if($rootScope.$broadcast('authenticationSuccess')){
                     console.log('entrou no authenticationSucess do login.controller e redirecionou para o home')
-                    $state.go('home');
+                    $state.go('home', null , {
+                        reload: true
+                    });
                 }
 
                 $rootScope.$broadcast('authenticationSuccess');
