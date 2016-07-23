@@ -17,11 +17,28 @@
                     pageTitle: 'Pessoas'
                 },
                 views: {
+
+                    'menu@': {
+                        templateUrl: 'app/components/menu/menu.html'
+                    },
                     'content@': {
+                        templateUrl: 'app/home/home.html',
+                        controller: 'HomeController',
+                        controllerAs: 'vm'
+                    },
+
+                    'conteudo@': {
                         templateUrl: 'app/entities/pessoa/pessoas.html',
                         controller: 'PessoaController',
                         controllerAs: 'vm'
+                    },
+
+                    'footer@': {
+                        templateUrl: 'app/components/footer/no-footer.html'
                     }
+
+
+
                 },
                 params: {
                     page: {
@@ -54,7 +71,7 @@
                     pageTitle: 'Pessoa'
                 },
                 views: {
-                    'content@': {
+                    'conteudo@': {
                         templateUrl: 'app/entities/pessoa/pessoa-detail.html',
                         controller: 'PessoaDetailController',
                         controllerAs: 'vm'
@@ -72,15 +89,32 @@
                 data: {
                     authorities: ['ROLE_USER']
                 },
-                
+
                 views: {
+
+                    'menu@': {
+                        templateUrl: 'app/components/menu/menu.html'
+                    },
                     'content@': {
+                        templateUrl: 'app/home/home.html',
+                        controller: 'HomeController',
+                        controllerAs: 'vm'
+                    },
+
+                    'conteudo@': {
                         templateUrl: 'app/entities/pessoa/pessoa-dialog.html',
                         controller: 'PessoaDialogController',
                         controllerAs: 'vm'
+                    },
+
+                    'footer@': {
+                        templateUrl: 'app/components/footer/no-footer.html'
                     }
+
+
+
                 },
-                
+
                 resolve: {
                     entity: function () {
                         return {
@@ -101,7 +135,7 @@
                 },
 
                 views:{
-                    'content@':{
+                    'conteudo@':{
                         templateUrl: 'app/entities/pessoa/pessoa-dialog.html',
                         controller: 'PessoaDialogController',
                         controllerAs: 'vm'
