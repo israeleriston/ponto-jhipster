@@ -17,21 +17,14 @@
 
             views: {
                 'menu@': {
-                    templateUrl: 'app/components/menu/menu.html',
-                    controller: 'HomeController',
-                    controllerAs: 'vm'
+                    templateUrl: 'app/components/menu/menu.html'
                 },
-
-                'navbar@': {
-                    templateUrl: 'app/layouts/navbar/navbar.html'
-                },
-
                 'content@': {
                     templateUrl: 'app/home/home.html',
                     controller: 'HomeController',
                     controllerAs: 'vm'
                 },
-
+                
                 'footer@': {
                     templateUrl: 'app/components/footer/no-footer.html'
                 }

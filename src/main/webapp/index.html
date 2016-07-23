@@ -52,14 +52,9 @@
 </head>
 <body class="page-container">
 
-    <div ui-view="menu" ng-cloak ></div>
-    <div  class="page-content" style="{{$state.$current.name === 'login' ? 'margin-left: 0px!important;' : ''}}">
-    <!-- utilizado 50 px de height por causa do ui.router que de alguma forma nao permite aninhar ui-views-->
-    <div ui-view="navbar" ng-cloak ></div>
-    <div ui-view="content" ng-cloak></div>
-    <!--height-->
-    </div>
-    <div ui-view="footer" ng-cloak></div>
+    <div ui-view="menu" ng-cloak="" ></div>
+    <div ui-view="content" ng-cloak=""></div>
+    <div ui-view="footer" ng-cloak=""></div>
 
     <!-- build:js app/vendor.js -->
     <!-- bower:js -->

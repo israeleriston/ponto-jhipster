@@ -32,9 +32,7 @@
         function logout() {
             // collapseNavbar();
             Auth.logout();
-            $state.go('login', null, {
-                reload: true
-            });
+            $state.go('login');
         }
 
         function toggleNavbar() {

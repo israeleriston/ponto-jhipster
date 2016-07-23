@@ -18,19 +18,16 @@
                     authorities: []
                 },
                 views: {
+                    'menu@': {
+                        templateUrl: '/app/components/menu/no-navigation.html'
+                    },
+                    
                     'content@': {
                         templateUrl: '/app/components/login/login.html',
                         controller: 'LoginController',
                         controllerAs: 'vm'
                     },
 
-                    'menu@': {
-                        templateUrl: '/app/components/menu/no-navigation.html'
-                    },
-
-                    'navbar@': {
-                        templateUrl: '/app/components/navbar/no-navbar.html'
-                    },
                     'footer@':{
                         templateUrl: '/app/components/footer/footer-login.html'
                     }
