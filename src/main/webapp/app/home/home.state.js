@@ -17,7 +17,9 @@
 
             views: {
                 'menu@': {
-                    templateUrl: 'app/components/menu/menu.html'
+                    templateUrl: 'app/components/menu/menu.html',
+                    controller: 'HomeController',
+                    controllerAs: 'vm'
                 },
                 'content@': {
                     templateUrl: 'app/home/home.html',
