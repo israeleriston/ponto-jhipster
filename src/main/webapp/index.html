@@ -16,9 +16,39 @@
 </head>
 <body class="page-container">
 
-    <div ui-view="menu" ng-cloak="" ></div>
+    <div ui-view="menu" ng-cloak="" >
+        <!--INJEÇÃO DE DEPENDÊNCIAS DO TEMPLATE-->
+        <script  src="resource/js/plugins/jquery/jquery.min.js"></script>
+        <script  src="resource/js/plugins/jquery/jquery-ui.min.js"></script>
+        <script  src="resource/js/plugins/bootstrap/bootstrap.min.js"></script>
+
+        <script  src="resource/js/plugins/icheck/icheck.min.js"></script>
+        <script  src="resource/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script  src="resource/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+
+        <script  src="resource/js/plugins/morris/raphael-min.js"></script>
+        <script  src="resource/js/plugins/morris/morris.min.js"></script>
+        <script  src="resource/js/plugins/rickshaw/d3.v3.js"></script>
+        <script  src="resource/js/plugins/rickshaw/rickshaw.min.js"></script>
+        <script  src="resource/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script  src="resource/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+        <script  src="resource/js/plugins/bootstrap/bootstrap-datepicker.js"></script>
+        <script  src="resource/js/plugins/owl/owl.carousel.min.js"></script>
+        <script  src="resource/js/plugins/moment.min.js"></script>
+        <script  src="resource/js/plugins/daterangepicker/daterangepicker.js"></script>
+
+        <script  src="resource/js/settings.js"></script>
+        <script  src="resource/js/plugins.js"></script>
+        <script  src="resource/js/actions.js"></script>
+        <script  src="resource/js/demo_dashboard.js"></script>
+        <!--FIM INJEÇÃO DE DEPENDÊNCIAS DO TEMPLATE-->
+
+    </div>
+    <!--RETIRAR O height e o margin-left do estado de login-->
+    <div class="page-content" ng-style="{'isAuthenticated()' : '' ? '' : '' }">
     <div ui-view="content" ng-cloak=""></div>
     <div ui-view="conteudo" ng-cloak=""></div>
+    </div>
     <div ui-view="footer" ng-cloak=""></div>
 
     <!-- build:js app/vendor.js -->
@@ -179,6 +209,15 @@
     <script src="app/account/account.state.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
