@@ -17,7 +17,7 @@
                 pageTitle: 'ponto'
             },
             views: {
-                'content@': {
+                'conteudo@app': {
                     templateUrl: 'app/admin/user-management/user-management.html',
                     controller: 'UserManagementController',
                     controllerAs: 'vm'
