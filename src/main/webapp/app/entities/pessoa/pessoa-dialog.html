@@ -10,7 +10,7 @@
                     <label class="col-md-3 col-xs-12  control-label" for="nome">Nome</label>
                     <div class="col-md-6 col-xs-12">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="nome" id="nome"
+                            <input required  type="text"  class="form-control" name="nome" id="nome"
                                    ng-model="vm.pessoa.nome"/>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                     <label class="col-md-3 col-xs-12 control-label">E-mail</label>
                     <div class="col-md-6 col-xs-12">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="email" id="email"
+                            <input required type="text" class="form-control" name="email" id="email"
                                    ng-model="vm.pessoa.email"/>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                     <label class="col-md-3 col-xs-12 control-label">C.P.F</label>
                     <div class="col-md-6 col-xs-12">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="cpf" id="cpf"
+                            <input required type="text" class="form-control" name="cpf" id="cpf"
                                    ng-model="vm.pessoa.cpf"/>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                     <label class="col-md-3 col-xs-12 control-label">Inscrição</label>
                     <div class="col-md-6 col-xs-12">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="inscricao" id="inscricao"
+                            <input required type="text" class="form-control" name="inscricao" id="inscricao"
                                    ng-model="vm.pessoa.inscricao"/>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
 
             </div>
             <div class="panel-footer">
-                <button type="submit" class="btn btn-primary " ng-disabled="editForm.$invalid || vm.isSaving">
+                <button type="submit" class="btn btn-primary " ng-disabled="!editForm.$valid || vm.isSaving">
                     <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
                 </button>
                 <button type="button" class="btn btn-default" ng-click="vm.clear()">
