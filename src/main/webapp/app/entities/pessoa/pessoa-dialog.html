@@ -1,55 +1,64 @@
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="panel-title-box"> Panel</div>
-            <div class="panel-body padding-0">
-                <form name="editForm" role="form" novalidate ng-submit="vm.save()">
-
-
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                            ng-click="vm.clear()">&times;</button>
-                    <h4 class="modal-title" id="myPessoaLabel">Create or edit a Pessoa</h4>
-
-                    <jhi-alert-error></jhi-alert-error>
-                    <div class="form-group" ng-show="vm.pessoa.id">
-                        <label for="id">ID</label>
-                        <input type="text" class="form-control" id="id" name="id"
-                               ng-model="vm.pessoa.id" readonly/>
+<div class="col-md-12">
+    <form class="form-horizontal" name="editForm" novalidate ng-submit="vm.save()">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h5 class="panel-title">Cadastro de <strong>Pessoa</strong></h5>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Nome</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="nome" id="nome"
+                                   ng-model="vm.pessoa.nome"/>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label" for="field_nome">Nome</label>
-                        <input type="text" class="form-control" name="nome" id="field_nome"
-                               ng-model="vm.pessoa.nome"
-                        />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="field_email">Email</label>
-                        <input type="text" class="form-control" name="email" id="field_email"
-                               ng-model="vm.pessoa.email"
-                        />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="field_cpf">Cpf</label>
-                        <input type="text" class="form-control" name="cpf" id="field_cpf"
-                               ng-model="vm.pessoa.cpf"
-                        />
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="field_inscricao">Inscricao</label>
-                        <input type="text" class="form-control" name="inscricao" id="field_inscricao"
-                               ng-model="vm.pessoa.inscricao"
-                        />
-                    </div>
+                </div>
 
-                    <button type="button" class="btn btn-default" ng-click="vm.clear()">
-                        <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
-                    </button>
-                    <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
-                    </button>
 
-                </form>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">E-mail</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="email" id="email"
+                                   ng-model="vm.pessoa.email"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">C.P.F</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="cpf" id="cpf"
+                                   ng-model="vm.pessoa.cpf"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-12 control-label">Inscrição</label>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="inscricao" id="inscricao"
+                                   ng-model="vm.pessoa.inscricao"/>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary " ng-disabled="editForm.$invalid || vm.isSaving">
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Salvar</span>
+                </button>
+                <button type="button" class="btn btn-default" ng-click="vm.clear()">
+                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Voltar</span>
+                </button>
+
             </div>
         </div>
-
-    </div>
+    </form>
+</div>

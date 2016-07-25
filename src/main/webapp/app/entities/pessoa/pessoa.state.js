@@ -11,7 +11,7 @@
         $stateProvider
             .state('pessoa', {
                 parent: 'entity',
-                url: '/pessoas?page&sort&search',
+                url: '/pessoa?page&sort&search',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Pessoas'
