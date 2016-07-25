@@ -1,12 +1,13 @@
 <div class="col-md-12">
-    <form class="form-horizontal" name="editForm" novalidate ng-submit="vm.save()">
+    <form class="form-horizontal" name="editForm" role="form" novalidate ng-submit="vm.save()">
+        <jhi-alert-error></jhi-alert-error>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h5 class="panel-title">Cadastro de <strong>Pessoa</strong></h5>
             </div>
             <div class="panel-body">
                 <div class="form-group">
-                    <label class="col-md-3 col-xs-12 control-label">Nome</label>
+                    <label class="col-md-3 col-xs-12  control-label" for="nome">Nome</label>
                     <div class="col-md-6 col-xs-12">
                         <div class="input-group">
                             <input type="text" class="form-control" name="nome" id="nome"
