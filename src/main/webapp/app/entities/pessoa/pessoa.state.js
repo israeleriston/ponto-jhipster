@@ -11,34 +11,17 @@
         $stateProvider
             .state('pessoa', {
                 parent: 'entity',
-                url: '/pessoa?page&sort&search',
+                url: '/pessoas?page&sort&search',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'Pessoas'
                 },
                 views: {
-
-                    'menu@': {
-                        templateUrl: 'app/components/menu/menu.html',
-                        controller: 'HomeController',
-                        controllerAs: 'vm'
-                    },
-                    'content@': {
-                        templateUrl: 'app/home/home.html',
-                        controller: 'HomeController',
-                        controllerAs: 'vm'
-                    },
-
-                    'conteudo@': {
+                    'conteudo@app': {
                         templateUrl: 'app/entities/pessoa/pessoas.html',
                         controller: 'PessoaController',
                         controllerAs: 'vm'
-                    },
-
-                    'footer@': {
-                        templateUrl: 'app/components/footer/no-footer.html'
                     }
-
 
 
                 },
@@ -73,7 +56,7 @@
                     pageTitle: 'Pessoa'
                 },
                 views: {
-                    'conteudo@': {
+                    'conteudo@app': {
                         templateUrl: 'app/entities/pessoa/pessoa-detail.html',
                         controller: 'PessoaDetailController',
                         controllerAs: 'vm'
@@ -87,32 +70,18 @@
             })
             .state('pessoa.new', {
                 parent: 'pessoa',
-                url: '/new',
+                url: '/novo/',
                 data: {
                     authorities: ['ROLE_USER']
                 },
 
                 views: {
 
-                    'menu@': {
-                        templateUrl: 'app/components/menu/menu.html'
-                    },
-                    'content@': {
-                        templateUrl: 'app/home/home.html',
-                        controller: 'HomeController',
-                        controllerAs: 'vm'
-                    },
-
-                    'conteudo@': {
+                    'conteudo@app': {
                         templateUrl: 'app/entities/pessoa/pessoa-dialog.html',
                         controller: 'PessoaDialogController',
                         controllerAs: 'vm'
-                    },
-
-                    'footer@': {
-                        templateUrl: 'app/components/footer/no-footer.html'
                     }
-
 
 
                 },
@@ -131,13 +100,13 @@
             })
             .state('pessoa.edit', {
                 parent: 'pessoa',
-                url: '/{id}/edit',
+                url: '/editar/{id}/',
                 data: {
                     authorities: ['ROLE_USER']
                 },
 
                 views:{
-                    'conteudo@':{
+                    'conteudo@app':{
                         templateUrl: 'app/entities/pessoa/pessoa-dialog.html',
                         controller: 'PessoaDialogController',
                         controllerAs: 'vm'
@@ -145,7 +114,7 @@
                 },
 
                 resolve: {
-                    entity: ['Pessoa', function (Pessoa) {
+                    entity: ['$stateParams', 'Pessoa', function ($stateParams, Pessoa) {
                         return Pessoa.get({id: $stateParams.id}).$promise;
                     }]
                 }
@@ -154,7 +123,7 @@
             })
             .state('pessoa.delete', {
                 parent: 'pessoa',
-                url: '/{id}/delete',
+                url: '/excluir/{id}/',
                 data: {
                     authorities: ['ROLE_USER']
                 },
