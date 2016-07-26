@@ -17,7 +17,7 @@
                 pageTitle: 'Dias'
             },
             views: {
-                'content@': {
+                'conteudo@app': {
                     templateUrl: 'app/entities/dia/dias.html',
                     controller: 'DiaController',
                     controllerAs: 'vm'
@@ -54,7 +54,7 @@
                 pageTitle: 'Dia'
             },
             views: {
-                'content@': {
+                'conteudo@app': {
                     templateUrl: 'app/entities/dia/dia-detail.html',
                     controller: 'DiaDetailController',
                     controllerAs: 'vm'

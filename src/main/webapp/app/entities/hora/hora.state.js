@@ -17,7 +17,7 @@
                 pageTitle: 'Horas'
             },
             views: {
-                'content@': {
+                'conteudo@app': {
                     templateUrl: 'app/entities/hora/horas.html',
                     controller: 'HoraController',
                     controllerAs: 'vm'
@@ -54,7 +54,7 @@
                 pageTitle: 'Hora'
             },
             views: {
-                'content@': {
+                'conteudo@app': {
                     templateUrl: 'app/entities/hora/hora-detail.html',
                     controller: 'HoraDetailController',
                     controllerAs: 'vm'

@@ -4,23 +4,23 @@
             <h1>Registration</h1>
 
             <div class="alert alert-success" ng-show="vm.success">
-                <strong>Registration saved!</strong> Please check your email for confirmation.
+                <strong>Registro Salvo!</strong> Por Favor verifique seu e-mail para confirmar.
             </div>
 
             <div class="alert alert-danger" ng-show="vm.error">
-                <strong>Registration failed!</strong> Please try again later.
+                <strong>Falha ao Registrar!</strong> Por Favor Tente Novamente.
             </div>
 
             <div class="alert alert-danger" ng-show="vm.errorUserExists">
-                <strong>Login name already registered!</strong> Please choose another one.
+                <strong>Esse login já exste!</strong> Por Favor escolha outro .
             </div>
 
             <div class="alert alert-danger" ng-show="vm.errorEmailExists">
-                <strong>E-mail is already in use!</strong> Please choose another one.
+                <strong>E-mail já se encontra em uso!</strong> Por Favor escolha outro.
             </div>
 
             <div class="alert alert-danger" ng-show="vm.doNotMatch">
-                The password and its confirmation do not match!
+                As senhas não conferem!
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
@@ -33,15 +33,15 @@
                     <div ng-show="form.login.$dirty && form.login.$invalid">
                         <p class="help-block"
                                ng-show="form.login.$error.required">
-                            Your username is required.
+                            login é obrigatório
                         </p>
                         <p class="help-block"
                                ng-show="form.login.$error.minlength">
-                            Your username is required to be at least 1 character.
+                            login tem que ser maior que 1 caracter
                         </p>
                         <p class="help-block"
                                ng-show="form.login.$error.maxlength">
-                            Your username cannot be longer than 50 characters.
+                            login não pode ser maior que 50 characters.
                         </p>
                         <p class="help-block"
                                ng-show="form.login.$error.pattern">
@@ -60,7 +60,7 @@
                         </p>
                         <p class="help-block"
                                ng-show="form.email.$error.email">
-                            Your e-mail is invalid.
+                            Esse e-mail é inválido.
                         </p>
                         <p class="help-block"
                                ng-show="form.email.$error.minlength">
@@ -90,7 +90,7 @@
                             Your password cannot be longer than 50 characters.
                         </p>
                     </div>
-                    <password-strength-bar password-to-check="vm.registerAccount.password"></password-strength-bar>
+
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="confirmPassword">New password confirmation</label>
@@ -114,10 +114,6 @@
 
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Register</button>
             </form>
-            <p></p>
-            <div class="alert alert-warning">
-                If you want to <a class="alert-link" href="" ng-click="vm.login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-            </div>
         </div>
     </div>
 </div>
