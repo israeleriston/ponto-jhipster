@@ -17,7 +17,7 @@
                 pageTitle: 'Feriados'
             },
             views: {
-                'content@': {
+                'conteudo@app': {
                     templateUrl: 'app/entities/feriado/feriados.html',
                     controller: 'FeriadoController',
                     controllerAs: 'vm'
@@ -54,7 +54,7 @@
                 pageTitle: 'Feriado'
             },
             views: {
-                'content@': {
+                'conteudo@app': {
                     templateUrl: 'app/entities/feriado/feriado-detail.html',
                     controller: 'FeriadoDetailController',
                     controllerAs: 'vm'
