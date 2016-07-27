@@ -1,0 +1,37 @@
+<div class="container">
+	<title-subpage data-description="Listagem de parâmetros" data-icon="glyphicon-list"></title-subpage>
+	<input-search data-func="vm.parametroFindByParameter" data-search-field="vm.busca"></input-search>
+	<record-counter data-list="vm.parametros"></record-counter>
+	<div class="table-responsive col-xs-12 col-sm-12 col-md-12">
+		<table
+			class="table table-row-resize table-striped position-margin-top-default">
+			<thead>
+        <th>Empresa</th>
+				<th>Nome</th>
+				<th>Tipo</th>
+        <th>Valor</th>
+				<th>Vigência inicial</th>
+        <th>Vigência final</th>
+        <th>Status</th>
+        <th class="col-lg-2">Ações</th>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="parametro in vm.parametros.data">
+          <td data-ng-class="{'row-table-blocked' : vm.isVigenciaEncerrada(parametro)}">{{parametro.empresanome}}</td>
+					<td data-ng-class="{'row-table-blocked' : vm.isVigenciaEncerrada(parametro)}">{{parametro.parametronome}}</td>
+					<td data-ng-class="{'row-table-blocked' : vm.isVigenciaEncerrada(parametro)}">{{vm.getTipoValor(parametro.tipovalorparametro)}}</td>
+          <td data-ng-class="{'row-table-blocked' : vm.isVigenciaEncerrada(parametro)}">{{vm.getValorPeloTipo(parametro)}}</td>
+          <td data-ng-class="{'row-table-blocked' : vm.isVigenciaEncerrada(parametro)}">{{parametro.iniciovigencia | date:'dd/MM/yyyy'}}</td>
+          <td data-ng-class="{'row-table-blocked' : vm.isVigenciaEncerrada(parametro)}">{{parametro.fimvigencia | date:'dd/MM/yyyy'}}</td>
+          <td>{{parametro.statusvigencia}}</td>
+					<td>
+						<action-button data-ng-click="vm.goToEdit(parametro)" data-action-type="edit" data-type-button="button" data-action-verify-name="EDITAR_PARAMETRO" is-disabled="vm.isVigenciaEncerrada(parametro)"></action-button>
+            <action-button data-ng-click="vm.encerrarVigencia(parametro)" data-action-type="inactivate" data-type-button="button" data-action-verify-name="ENCERRAR_VIGENCIA_PARAMETRO" is-disabled="vm.isVigenciaEncerrada(parametro)"></action-button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<list-pagination data-list="vm.parametros" data-func="vm.parametroFindByParameter"></list-pagination>
+</div>
+<create-button data-func="vm.create" data-label="Parâmetro" data-action-verify-name="CRIAR_PARAMETRO"></create-button>

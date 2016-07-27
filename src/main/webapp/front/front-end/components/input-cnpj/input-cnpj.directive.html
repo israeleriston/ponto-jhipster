@@ -1,0 +1,9 @@
+<div class="form-group has-feedback" data-ng-form="formInputCnpj" data-ng-class="{'has-error': formInputCnpj.cnpj.$invalid && formInputCnpj.cnpj.$dirty}">
+  <label class="control-label">CNPJ</label>
+  <input autocomplete="off" type="text" class="form-control" data-ng-minlength="minLength" data-ng-maxlength="maxLength" name="cnpj" data-ng-model="object" maxlength="{{maxLength}}" data-ng-required="isRequired" cnpj-mask data-ng-disabled="isDisabled">
+    <span class="form-control-feedback" data-ng-if="formInputCnpj.cnpj.$valid" data-ng-class="{'glyphicon glyphicon-ok' : formInputCnpj.cnpj.$valid}"></span>
+  <div data-ng-messages="formInputCnpj.cnpj.$error" data-ng-if="formInputCnpj.cnpj.$dirty">
+    <span class="help-block" data-ng-message="invalidCnpj"> {{invalidCnpj}} </span>
+    <span class="help-block" data-ng-message="required"> {{requiredMessage}} </span>
+  </div>
+</div>

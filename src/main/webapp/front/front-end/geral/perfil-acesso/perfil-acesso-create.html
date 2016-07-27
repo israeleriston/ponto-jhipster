@@ -1,0 +1,62 @@
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="./css/tree.themes/default/style.css" />
+</head>
+<div class="container">
+	<title-subpage description="Cadastro de Perfil de Acesso" icon="glyphicon-check"></title-subpage>
+	<form role="form" data-ng-submit="vm.save()" name="formPerfilDeAcesso">
+		<body>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="margin-top: 13px;">
+        		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<input-short-description object="vm.perfilDeAcesso.nome" label="Nome do perfil" name="nome" is-required="true" is-upper-case="true"></input-short-description>
+				</div>
+		        <div class="table-responsive col-xs-12 col-sm-12 col-md-12 form-group required">
+		          <table class="table table-row-resize position-margin-top-default">
+		            <thead>
+		              <label class="control-label">Componentes do Login Para o Perfil de Acesso</label>
+		            </thead>
+		            <tbody>
+		              <tr data-ng-repeat="componente in vm.componentesDoLogin">
+		                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-1">
+		                  <button type="button" class="btn btn-sm" data-ng-class="{'btn-info' : componente.selecionado, 'btn-default' : !componente.selecionado}" 
+		                  data-ng-click="vm.selecionarComponenteDeLogin(componente)" data-ng-disabled="componente.isObrigatorio || !vm.precedenteSelecionado(componente)">
+		                    <span class="glyphicon" data-ng-class="{'glyphicon-ok' : componente.selecionado, 'glyphicon-minus' : !componente.selecionado}"></span>
+		                  </button>                 
+		                </td>
+		                <td  class="col-xs-10 col-sm-10 col-md-10 col-lg-11"><span>{{componente.description}} <span ng-if="componente.isObrigatorio" class="bold text-red">*</span></span></td>
+		              </tr>
+		            </tbody>
+		          </table>
+		        </div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 withoutPadding">
+					<h4 class="text-center">Itens de acesso disponíveis:</h4>
+				</div>
+				<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 withoutPadding">
+					<div class="inner-addon right-addon">
+						<i class="glyphicon glyphicon-search"></i> 
+						<input autocomplete="off" type="text" class="form-control" id="searchField" placeholder="Pesquise os itens que deseja incluir" data-ng-model="vm.findItem" data-capitalize/>
+					</div>
+				</div>
+				<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 withoutPadding" style="margin-top: 10px;">
+					<label class="control-label">Selecione os itens que deseja
+						incluir: <strong><font color="red">*</font></strong>
+					</label>
+					<div id="jstree"></div>
+				</div>
+			</div>
+			<div class="clearfix">&nbsp;</div>
+			<div class="col-xs-12 col-sm-offset-6 col-sm-3 col-md-offset-8 col-md-2">
+				<action-button action-type="list" action-verify-name="LISTAR_PERFIL_DE_ACESSO" type-button="button" label="Voltar" ng-click="vm.backToList()"></action-button>
+			</div>
+			<div class="col-xs-12 col-sm-3 col-md-2">
+				<div class="form-group">
+					<button type="submit" class="btn btn-success form-control" data-ng-disabled="formPerfilDeAcesso.$invalid || !vm.haItensSelecionados" action-verify="CRIAR_PERFIL_DE_ACESSO" id="botaoSalvar">
+						<span class="glyphicon glyphicon-floppy-disk"></span> Salvar
+					</button>
+				</div>
+			</div>
+		</body>
+	</form>

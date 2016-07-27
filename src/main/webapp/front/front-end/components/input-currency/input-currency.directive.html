@@ -1,0 +1,12 @@
+<div class="form-group has-feedback" data-ng-form="formInputCurrency" data-ng-class="{'has-error': formInputCurrency.$invalid && formInputCurrency.$dirty, 'required': isRequired}">
+  <label class="control-label" data-ng-show="showLabel">{{label}}</label>
+  <div class="input-group">
+    <span class="input-group-addon">R$</span>
+    <input autocomplete="off" type="text" class="form-control text-right" name="{{name}}" data-ng-model="object" data-money-mask data-ng-required="isRequired" maxlength="{{maxLength}}" data-ng-disabled="isDisabled">
+    <span class="form-control-feedback" data-ng-if="formInputCurrency.$valid" data-ng-class="{'glyphicon glyphicon-ok' : formInputCurrency.$valid}"></span>
+  </div>
+  <div data-ng-messages="formInputCurrency[name].$error" data-ng-if="formInputCurrency[name].$dirty">
+    <span class="help-block" data-ng-message="required"> {{requiredMessage}} </span>
+    <span class="help-block" data-ng-message="numberIsZero"> {{numberIsZeroMessage}} </span>
+  </div>
+</div>

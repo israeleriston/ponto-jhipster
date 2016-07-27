@@ -1,0 +1,10 @@
+<div class="form-group has-feedback" data-ng-form="formInputTypeahead" data-ng-class="{'has-error': formInputTypeahead[name].$invalid && formInputTypeahead[name].$dirty}">
+  <label class="control-label" data-ng-show="showLabel">{{label}}</label>
+  <input autocomplete="off" type="text" class="form-control" name="{{name}}" data-ng-model="object" data-typeahead="obj as obj[field] for obj in executeFunction($viewValue) | limitTo:10" data-ng-required="isRequired" data-validation-typeahead data-ng-disabled="isDisabled" typeahead-editable="false" placeholder="{{placeholder}}" typeahead-on-select="onSelectFunction($item, $model, $label)" typeahead-loading="isLoading" typeahead-wait-ms="700">
+    <span class="form-control-feedback" data-ng-if="formInputTypeahead[name].$valid" data-ng-class="{'glyphicon glyphicon-ok' : formInputTypeahead[name].$valid}"></span>
+    <i data-ng-if="isLoading" class="ion-load-a spinner form-control-feedback"></i>
+    <div data-ng-messages="formInputTypeahead[name].$error" data-ng-if="formInputTypeahead[name].$dirty">
+    <span class="help-block" data-ng-message="invalidTypeahead"> {{invalidTypeahead}} </span>
+    <span class="help-block" data-ng-message="required"> {{requiredMessage}} </span>
+  </div>
+</div>

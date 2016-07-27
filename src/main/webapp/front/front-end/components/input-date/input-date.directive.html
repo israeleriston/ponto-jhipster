@@ -1,0 +1,14 @@
+<div class="form-group has-feedback" data-ng-form="formInputDate" data-ng-class="{'has-error': formInputDate[name].$invalid && formInputDate[name].$dirty}">
+  <label class="control-label" data-ng-show="showLabel">{{label}}</label>
+  <p class="input-group">
+    <input autocomplete="off" type="text" class="form-control date" data-uib-datepicker-popup="{{format}}" placeholder="DD/MM/AAAA" data-ng-model="object" data-is-open="status.opened" data-ng-required="{{isRequired}}" data-close-text="Fechar" data-current-text="Hoje" data-clear-text="Limpar" data-ng-minlength="10" maxlength="10" name="{{name}}"
+    data-ng-disabled="isDisabled" style="padding-right: 2px;">
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default" ng-click="open($event)" data-ng-disabled="isDisabled"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+  </p>
+  <div data-ng-messages="formInputDate[name].$error" data-ng-if="formInputDate[name].$dirty">
+    <span class="help-block" data-ng-message="required"> {{requiredMessage}} </span>
+    <span class="help-block" data-ng-message="date"> {{invalidDate}} </span>
+  </div>
+</div>

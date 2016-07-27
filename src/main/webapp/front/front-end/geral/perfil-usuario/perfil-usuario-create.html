@@ -1,0 +1,302 @@
+<div class="container">
+	<title-subpage description="Cadastro de Perfis do Usuário" icon="glyphicon-user"></title-subpage>
+	<form role="form" data-ng-submit="vm.save()" name="formPerfilDeUsuario">
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="panel panel-info">
+			  <div class="panel-heading sleenHeaderPainel">
+			    <h4 class="panel-title">Dados do usuário</h4>
+			  </div>
+			  <div class="panel-body">
+			    <h5 class="text-left">
+						<strong>Nome: </strong>
+						<span data-ng-bind="vm.usuario.nome "></span>
+						<span data-ng-bind="vm.usuario.sobrenome"></span>
+					</h5>
+					<p>
+					<h5 class="text-left">
+						<strong>E-mail: </strong>
+						<span data-ng-bind="vm.usuario.email.value"></span>
+					</h5>
+					<p>
+					<h5 class="text-left">
+						<strong>Status: </strong>
+						<span data-ng-bind="vm.usuario.status"></span>
+					</h5>
+			  </div>
+			</div>			
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12">
+			<div class="panel panel-info">
+			  <div class="panel-heading sleenHeaderPainel">
+			    <h3 class="panel-title">Seleção de empresa e perfil de acesso</h3>
+			  </div>
+			  <div class="panel-body withoutPadding">
+			    <div class="col-sm-12 col-md-12 col-xs-12">
+						<h5>Selecione a empresa e o perfil de acesso correspondente que deseja adicionar:</h5>
+					</div>
+					<div class="col-xs-10 col-sm-11 col-md-5 col-lg-5 withoutPadding">
+						<div class="col-xs-10 col-sm-11 col-md-11 withoutPaddingRight">
+							<div class="form-group {{formPerfilDeUsuario.empresa.$dirty &&
+              (formPerfilDeUsuario.empresa.$error.required || vm.empresaIsUndefined()
+              || vm.empresa.repetida) ? 'has-error' : ''}} has-feedback required">
+								<label class="control-label">Empresa</label> 
+								<input autocomplete="off" type="text" data-ng-model="vm.empresa"
+									uib-typeahead="e as e.razaosocial for e in vm.getEmpresas($viewValue)"
+									class="form-control" data-ng-required data-capitalize data-ng-disabled="vm.edit" name="empresa">
+                  <span class="glyphicon glyphicon-ok form-control-feedback"
+									data-ng-show="formPerfilDeUsuario.empresa.$required"></span>
+                  <div data-ng-if="formPerfilDeUsuario.empresa.$dirty">
+                    <span class="help-block" data-ng-if="!vm.empresa || !vm.empresa.id">Nenhuma empresa selecionada.</span>
+                    <span class="help-block" data-ng-if="vm.empresa.repetida">Usuário já possui perfil nesta empresa, não é possível criar um novo.</span>
+                  </div>
+							</div>
+						</div>
+						<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 form-group withoutPadding">
+	            <label for="">&nbsp;</label>
+	              <add-button-registering class="form-control" action-verify="CRIAR_EMPRESA"></add-button-registering>
+	          </div>
+					</div>
+					<div class="col-xs-10 col-sm-11 col-md-5 col-lg-5 withoutPadding">          
+						<div class="col-xs-10 col-sm-8 col-md-11 col-lg-11 withoutPaddingRight">
+							<div class="form-group {{formPerfilDeUsuario.perfilDeAcesso.$dirty &&
+              (vm.perfilDeAcessoIsUndefined() || vm.perfilDeAcesso.repetido) ? 'has-error' : ''}} has-feedback required">
+								<label class="control-label">Perfil de Acesso</label>
+                <input autocomplete="off" type="text" data-ng-model="vm.perfilDeAcesso"
+									uib-typeahead="p as p.nome for p in vm.getPerfisDeAcesso($viewValue)"
+									class="form-control" data-ng-required data-capitalize name="perfilDeAcesso"> 
+                  <span class="glyphicon glyphicon-ok form-control-feedback"
+									data-ng-show="formPerfilDeUsuario.pefilDeAcesso.$required"></span>
+                  <div data-ng-if="formPerfilDeUsuario.perfilDeAcesso.$dirty">
+                    <span class="help-block" data-ng-if="!vm.perfilDeAcesso || !vm.perfilDeAcesso.id">Nenhuma perfil de acesso selecionado.</span>
+                    <span class="help-block" data-ng-if="vm.perfilDeAcesso.repetido">Perfil de acesso já adicionado.</span>
+                  </div>
+							</div>
+						</div>
+						<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 form-group withoutPadding">
+	            <label for="">&nbsp;</label>
+	              <add-button-registering class="form-control" action-verify="CRIAR_PERFIL_DE_ACESSO"></add-button-registering>
+	          </div>
+          </div>
+					<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+							<label>&nbsp</label>
+							<button type="button" class="btn btn-success form-control"
+								data-toggle="collapse" data-target="#collapsePerfilDeUsuario" aria-expanded="false" aria-controls="collapsePerfilDeUsuario"
+								data-ng-disabled="!vm.empresa.id || vm.empresa.repetida || !vm.perfilDeAcesso.id || vm.perfilDeAcesso.repetido"
+								data-ng-click="vm.incluirPerfilDeAcesso(); formPerfilDeUsuario.perfilDeAcesso.$setPristine()">
+								<span class="glyphicon glyphicon-plus"></span> Incluir
+							</button>
+					</div>
+			  </div>
+			</div>			
+		</div>
+		<div class="col-sm-12 col-md-12 col-xs-12" >
+			<div class="panel panel-info">
+			  <div class="panel-heading sleenHeaderPainel">
+			    <h3 class="panel-title"><a data-toggle="collapse" href="" data-target="#collapsePerfilDeUsuario" aria-expanded="true" aria-controls="collapsePerfilDeUsuario">Perfis de Acesso Adicionados Para o Usuário</a></h3>
+			  </div>
+			  <div class="collapse in" id="collapsePerfilDeUsuario">
+				  <div class="panel-body">
+				    <div class="table-responsive col-xs-12 col-sm-12 col-md-12">			
+							<table class="table table-row-resize">
+								<thead>
+									<th class="col-xs-4 col-sm-5 col-md-5">Empresa</th>
+									<th class="col-xs-4 col-sm-5 col-md-5">Perfis de Acesso Adicionados</th>
+									<th class="col-xs-4 col-sm-2 col-md-2"></th>
+								</thead>
+								<tbody>
+									<tr>
+										<td><span data-ng-bind="vm.empresa.razaosocial"></span></td>
+										<td>
+											<li style="list-style: none;"
+											data-ng-repeat="perfilDeAcesso in vm.perfisDeAcessoIncluidos">
+												<button type="button" class="btn btn-danger"
+													data-ng-click="vm.removePerfilDeAcesso($index)"
+													title="Remover o perfil de acesso" style="margin-bottom: 2px;">
+													<span class="glyphicon glyphicon-remove"></span>
+												</button> 
+												<span data-ng-bind="perfilDeAcesso.nome"></span>
+										</li>
+										</td>
+										<td>
+											<button type="button" data-toggle="collapse" data-target="#collapseRestricoes" aria-expanded="false" aria-controls="collapseRestricoes" class="btn btn-warning form-control"
+												data-ng-click="vm.divRestricoesEmVisualizacao || vm.findItensDeAcesso(1); vm.divRestricoesEmVisualizacao = !vm.divRestricoesEmVisualizacao"
+												data-ng-disabled="vm.perfisDeAcessoIncluidos.length < 1">
+												<span class="glyphicon glyphicon-ban-circle"></span> Restrições
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+				  </div>
+			  </div>
+			</div>
+		</div>	
+	</form>
+	<div class="collapse" id="collapseRestricoes">
+	<div class="col-sm-12 col-md-12 col-xs-12 div-container ">
+		<div
+			class="col-sm-6 col-md-6 col-xs-12 div-sister-without-scroll">
+			<div class="panel panel-success">
+			  <div class="panel-heading sleenHeaderPainel">
+			    <h3 class="panel-title">Itens de acesso liberados</h3>
+			  </div>
+			  <div class="panel-body">
+			    <form role="formRestricoes" data-ng-submit="vm.findItensDeAcesso(1)">
+						<div
+							class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8">
+							<label class="control-label"></label>
+							<div class="inner-addon right-addon">
+								<i class="glyphicon glyphicon-search"></i> <input autocomplete="off" type="text"
+									class="form-control" id="searchField"
+									data-ng-model="vm.parametroBusca" placeholder="Pesquisar" data-capitalize/>
+							</div>
+						</div>
+					</form>
+					<div class="col-xs-12 col-sm-12">
+						<div class="help-block position-margin-top-default">
+							<span data-ng-bind="vm.itensDeAcesso.data.length"></span> de <span
+								data-ng-bind="vm.itensDeAcesso.recordCount"></span> itens de
+							acesso encontrados.
+						</div>
+					</div>
+					<div class="table-responsive col-xs-12 col-sm-12"
+						id="tabelaDeItensDeAcesso">
+						<table
+							class="table table-row-resize table-striped position-margin-top-default">
+							<tbody>
+								<tr data-ng-repeat="itemDeAcesso in vm.itensDeAcesso.data">
+									<td data-ng-class="{'row-table-blocked': itemDeAcesso.restrict}">
+										<span data-ng-bind="itemDeAcesso.nome"></span>
+										<button type="button" class="btn btn-warning"
+											style="float: right;"
+											data-ng-click="vm.restringirItemDeAcesso(itemDeAcesso)"
+											title="Bloquear acesso a este item"
+											data-ng-hide="itemDeAcesso.restrict">
+											<span class="glyphicon glyphicon-ban-circle"></span>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="text-center col-sm-12">
+						<pagination boundary-links="true" data-num-pages="vm.itensDeAcesso.count"
+							data-total-items="vm.itensDeAcesso.recordCount"
+							data-items-per-page="vm.itensDeAcesso.size"
+							data-ng-model="vm.pageNumber"
+							data-max-size="5"
+							data-ng-change="vm.findItensDeAcesso(vm.pageNumber)"
+							class="pagination-lg position-margin-top-default"
+							data-previous-text="&lsaquo;" data-next-text="&rsaquo;" data-first-text="&laquo;"
+							data-last-text="&raquo;"> </pagination>
+					</div>
+				</div>
+		  </div>
+		</div>
+		<div class="col-sm-6 col-md-6 col-xs-12 div-sister-with-scroll">
+			<div class="panel panel-danger">
+			  <div class="panel-heading sleenHeaderPainel">
+			  	<h3 class="panel-title">Itens de acesso bloqueados</h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="col-sm-12 col-md-12 col-xs-12">
+						<table class="table table-row-resize">
+							<tbody>
+								<tr
+									data-ng-repeat="itemDeAcessoRestrito in vm.itensDeAcessoRestritos">
+									<td data-ng-bind="itemDeAcessoRestrito.nome"></td>
+									<td>
+										<button type="button" class="btn btn-info" style="float: right;"
+											data-ng-click="vm.liberarItem($index)"
+											title="Desbloquear acesso a este item">
+											<span class="glyphicon glyphicon-arrow-left"></span>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>								 
+			</div>						
+		</div>
+	</div>
+	</div>
+	<div class="col-lg-12">
+		<div class="panel panel-info">
+			<div class="panel-heading sleenHeaderPainel">
+				<h3 class="panel-title"><a data-toggle="collapse" href="" data-target="#collapsePeriodoDeAcesso" aria-expanded="false" aria-controls="collapsePeriodoDeAcesso">Períodos de Acesso</a></h5>
+			</div>
+			<div class="collapse in" id="collapsePeriodoDeAcesso">
+				<div class="panel-body">
+					<div class="col-lg-12">
+						<form role="form" data-ng-submit="vm.addPeriodo()" name="formPeriodoDeAcesso">
+							<div class="form-group col-lg-12 text-center form-group required">
+								<label class="control-label">Dias da Semana</label>
+							</div>
+							<div class="form-group col-lg-12 text-center">
+								<div class="btn-group" data-ng-repeat="dia in vm.diasDaSemana">
+									<label class="btn btn-default btn-md" data-ng-model="vm.diaDaSemana[dia.value]" data-btn-checkbox>
+										{{dia.name}}
+									</label>
+								</div>
+							</div>
+							<div class="form-group col-lg-4 col-lg-offset-2 form-group required">
+								<label class="control-label">Hora de Início</label>
+								<timepicker data-ng-model="vm.periodo.horaInicio" data-hour-step="1" data-minuto-step="1" data-show-meridian="false" name="horaInicio"></timepicker>					
+							</div>
+							<div class="form-group col-lg-4 col-lg-offset-2 form-group required">
+								<label class="control-label">Hora de Fim</label>
+								<timepicker data-ng-model="vm.periodo.horaFim" data-hour-step="1" data-minuto-step="1" data-show-meridian="false" name="horaFim"></timepicker>
+							</div>
+							<div class="col-lg-12">
+								<button type="submit" class="btn btn-success pull-right" data-ng-disabled="!vm.isValidFields()">
+									<span class="glyphicon glyphicon-hourglass"></span> Adicionar Período
+								</button>
+							</div>
+						</form>
+						<div class="col-lg-12" data-ng-if="vm.perfilDeUsuario.periodosDeAcesso.length > 0">
+							<table class="table">
+								<thead>
+									<th class="col-lg-4">Dia</th>
+									<th class="col-lg-3">Hora início</th>
+									<th class="col-lg-3">Hora Fim</th>
+									<th class="col-lg-2">Ações</th>
+								</thead>
+								<tbody>
+									<tr data-ng-repeat="periodo in vm.perfilDeUsuario.periodosDeAcesso | orderBy : 'ordem'">
+										<td data-ng-bind="periodo.diaDaSemana"></td>
+										<td data-ng-bind="periodo.dataHoraInicio| date : 'HH:mm'"></td>
+										<td data-ng-bind="periodo.dataHoraFim | date : 'HH:mm'"></td>
+										<td>
+											<button type="button" class="btn btn-danger" data-ng-click="vm.removePeriodo(periodo)">
+												<span class="glyphicon glyphicon-trash"></span>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+	<div class="col-sm-12 col-md-12 col-xs-12">
+		<div
+			class="col-xs-12 col-sm-offset-6 col-sm-3 col-md-offset-8 col-md-2">
+			<label>&nbsp;</label>
+			<button type="button" class="btn btn-link form-control"
+				data-ng-click="vm.backToList()">
+				<span class="glyphicon glyphicon-backward"></span> Voltar
+			</button>
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-2">
+			<label>&nbsp;</label>
+			<button type="submit" class="btn btn-success form-control"
+				data-ng-disabled="formPerfilDeUsuario.$invalid || vm.empresa.id == undefined || vm.perfisDeAcessoIncluidos.length < 1 || vm.perfilDeUsuario.periodosDeAcesso.length < 1" data-ng-click="vm.save()">
+				<span class="glyphicon glyphicon-floppy-disk"></span> Salvar
+			</button>
+		</div>
+	</div>
+</div>

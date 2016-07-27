@@ -1,0 +1,22 @@
+<div class="modal-body">
+  <h3 class="text-center">Cadastro de Telefone</h3>
+  <form name="formTelefone" data-ng-submit="vm.salvar()" novalidate>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div class="form-group has-feedback required" data-ng-class="{'has-error' : formTelefone.numero.$error.phone}">
+        <label for="numeroTelefone" class="control-label">Numero:</label>
+        <input autocomplete="off" type="text" name="numero" data-ng-model="vm.telefone.numero" class="form-control" data-ng-required="true" data-phone-mask>
+        <span class="glyphicon glyphicon-ok form-control-feedback" data-ng-show="formTelefone.numero.$valid"></span> 
+        <span	class="help-block" data-ng-show="formTelefone.numero.$error.phone">Telefone incompleto.</span>
+      </div>
+    </div>
+    <div class="form-group col-xs-6 col-sm-6 col-md-6">
+      <label for="tipoTelefone" class="control-label">Tipo:</label>
+      <select data-ng-model="vm.telefone.tipo" name="tipo" class="form-control" data-ng-options="tipo for tipo in vm.tipos" data-ng-required="true" data-change-on-keyup></select>
+      </br>
+    </div>
+    <div class="form-group text-right">
+      <button type="submit" data-ng-disabled="formTelefone.$invalid" class="btn btn-primary">{{vm.descricaoBotao}}</button>
+      <button type="button" class="btn btn-default" data-ng-click="vm.fechar()">Fechar</button>
+    </div>
+  </form>
+</div>

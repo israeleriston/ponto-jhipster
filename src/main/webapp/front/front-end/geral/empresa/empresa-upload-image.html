@@ -1,0 +1,84 @@
+<div class="container">
+  <h3 class="text-center position-margin-top-default">
+    <span class="glyphicon glyphicon-picture"></span> Inserção de Imagens da Empresa
+  </h3>
+  <div class="panel panel-info">
+    <div class="panel-heading sleenHeaderPainel"><strong>Dados da Empresa:</strong></div>
+    <div class="panel-body">
+      <div class="col-sm-12 col-md-12 col-xs-12 text-left">        
+        <p><h5><strong>Nome Fantasia: </strong><span data-ng-bind="vm.empresa.nomeFantasia"></span></h5>
+        <p><h5><strong>Razao Social: </strong><span data-ng-bind="vm.empresa.razaoSocial "></span>
+        <p><h5><strong>CNPJ: </strong><span data-ng-bind="vm.empresa.cnpj.value | mascararCnpjNaLista"></span></h5>
+        <p><h5><strong>Status: </strong><span data-ng-bind="vm.empresa.status "></span></h5>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading sleenHeaderPainel"><strong>Seleção de imagem:</strong></div>
+    <div class="panel-body">
+      <div class="col-xs-12 col-sm-12 col-md-12 form-group">    
+        <div class="form-group col-xs-12 col-sm-4 col-md-3">
+          <label for="tipo" class="control-label">Tipo:</label>
+          <select data-ng-model="vm.tipo" name="tipo" class="form-control" data-ng-options="tipo.descricao for tipo in vm.tipos" required="required"></select>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-2 form-group" data-ng-show="vm.imageSrc.length < 1">
+          <label>&nbsp</label>
+          <span class="btn btn-primary btn-file" style="width: 100%;" data-ng-disabled="!vm.tipo">
+            <span class="glyphicon glyphicon-picture"></span>
+            Carregar imagem
+            <input autocomplete="off" type="file" ng-file-select="vm.fileSelected($files)" ng-model="vm.file" accept="image/*"/>
+          </span>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-2 form-group" data-ng-show="vm.imageSrc.length > 1">
+          <label>&nbsp</label>
+          <span class="btn btn-primary btn-file" style="width: 100%;">
+            <span class="glyphicon glyphicon-refresh"></span>
+            Trocar imagem
+            <input autocomplete="off" type="file" ng-file-select="vm.fileSelected($files)" ng-model="vm.file" accept="image/*"/>
+          </span>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-2 form-group">
+          <label>&nbsp</label>
+          <button class="btn btn-success form-control" action-verify="SALVAR_IMAGEM_EMPRESA" data-ng-click="vm.validarTipo()" data-ng-disabled="vm.imageSrc.length < 1">
+            <span class="glyphicon glyphicon-floppy-disk"></span> Salvar Imagem
+          </button>
+        </div>
+      </div>
+      <div class="col-md-12 form-group" data-ng-show="!vm.imageSrc.length < 1">
+        <div class="col-sm-12 col-md-12 col-xs-12 text-left">
+          <p><h4>Imagem selecionada:</h4>
+        </div>
+        <div class="col-sm-4 col-md-2 col-xs-12">
+          <div class="thumbnail">      
+            <strong data-ng-bind="vm.file[0].name"></strong>
+            <img id="imagem" ng-src="{{vm.imageSrc}}">
+            <strong>Tipo: </strong><span data-ng-bind="vm.tipo.descricao"></span>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading sleenHeaderPainel"><strong>Imagens salvas</strong></div>
+    <div class="panel-body">
+      <div ng-repeat="imagem in vm.empresa.imagem" class="gallery-box ng-scope">                  
+        <div class="thumbnail" ng-show="vm.empresa.imagem.length">
+          <span class="ng-binding">Categoria: <br><strong>{{vm.formatarCategoria(imagem.tipo)}}</strong></span>
+          <img ng-src="{{imagem.pathImagem}}">
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-xs btn-danger form-control" action-verify="EXCLUIR_IMAGEM_EMPRESA" data-ng-click="vm.remove(imagem.id)"><span class="glyphicon glyphicon-remove"></span> Remover
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix">&nbsp;</div>
+  <div class="col-xs-12 col-sm-offset-9 col-sm-3 col-md-offset-10 col-md-2">
+    <div class="form-group">
+      <button type="button" class="btn btn-link form-control" data-ng-click="vm.backToList()">
+        <span class="glyphicon glyphicon-backward"></span> Voltar
+      </button>
+    </div>
+  </div>
+</div>

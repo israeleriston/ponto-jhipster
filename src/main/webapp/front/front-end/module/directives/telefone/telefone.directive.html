@@ -1,0 +1,29 @@
+<div class="container-fluid withoutPadding div-margin-top">
+  <h2 class="withoutMargin form-group" data-ng-class="{'required' : isRequired}">
+    <small class="control-label">Telefones</small>
+    <button type="button" class="btn btn-primary pull-right" data-ng-click="openModal()"><span class="glyphicon glyphicon-phone"></span>  Novo Telefone</button>
+  </h1>
+  <table
+    class="table table-row-resize table-striped position-margin-top-default">
+    <thead>
+      <th class="col-xs-6 col-sm-6 col-sm-6 col-md-6 col-lg-6">Número</th>
+      <th class="col-xs-3 col-sm-3 col-sm-3 col-md-4 col-lg-3">Tipo</th>
+      <th class="col-xs-3 col-sm-3 col-sm-3 col-md-2 col-lg-3">Ações</th>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="telefone in telefones">
+        <td data-ng-bind="telefone | mascararTelefoneNaLista"></td>
+        <td data-ng-bind="telefone.tipo"></td>
+        <td>
+          <button type="button" class="btn btn-warning btn-sm" data-ng-click="editTelefone(telefone)">
+          <span class="glyphicon glyphicon-pencil"></span>
+          </button>
+          <button type="button" class="btn btn-danger btn-sm"
+            data-ng-click="removeTelefone(telefone)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,397 @@
+.form-group.required .control-label:after {
+	content: " *";
+	color: red;
+}
+
+.btn-circle {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 12px;
+	line-height: 1.428571429;
+	border-radius: 15px;
+}
+
+.btn-circle.btn-xl {
+	width: 70px;
+	height: 70px;
+	bottom: 10%;
+	right: 0;
+	float: right;
+	font-size: 24px;
+	line-height: 1.33;
+	border-radius: 35px;
+	position: fixed;
+}
+
+.navbar.navbar-bottom {
+	bottom: -1px;
+	position: fixed;
+	width: 100%;
+	min-height: 0;
+}
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover,
+	.pagination>.active>span:hover, .pagination>.active>a:focus,
+	.pagination>.active>span:focus {
+	z-index: inherit;
+}
+
+.position-bottom-relative {
+	position: relative;
+	margin-bottom: 4%;
+}
+
+.nav-breadcrumb {
+	/*background-color:;*/
+	padding: 1px;
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0px;
+}
+
+.position-margin-top-default {
+	margin-top: 1px;
+	margin-bottom: 2px;
+}
+
+.navbar.navbar-default {
+	padding: 0px 0px 0px;
+	margin-bottom: 1px;
+}
+
+.table-row-resize tbody tr {
+	height: 1px;
+}
+
+.btn.btn-t {
+	height: 1%;
+	width: 1%;
+}
+
+.inner-addon {
+	position: relative;
+}
+
+.inner-addon .glyphicon {
+	position: absolute;
+	padding: 10px;
+	pointer-events: none;
+}
+
+.right-addon .glyphicon {
+	right: 0px;
+}
+
+.right-addon input {
+	padding-right: 30px;
+}
+
+.div-container {
+	display: table;
+	height: 100%;
+	width: 100%;
+	padding: 0px;
+}
+
+.div-sister-with-scroll {
+	height: 100%;
+	display: table-column;
+	overflow: auto;
+	position: relative;
+	padding-right: 2.5%;
+	padding-left: 0;
+}
+
+.div-sister-without-scroll {
+	display: table-column;
+	padding-left: 2.5%;
+	padding-right: 0;
+}
+
+.row-table-blocked {
+	text-decoration: line-through;
+	cursor: default;
+}
+
+.borderRight {
+	border-right-style: groove;
+}
+
+.borderTop {
+	border-top-style: groove;
+	margin-top: 3%;
+}
+
+.borderBottom {
+	border-bottom-style : groove;	
+}
+
+.addBorder {
+	border: 1px solid black;
+}
+
+.centered {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+}
+
+.control-label.strong {
+	font-weight: bold;
+}
+
+.borderBottom {
+	border-bottom-style: groove;
+	margin-bottom: 3%;
+}
+
+.action-hide {
+	display: none;
+}
+
+.col-md-offset-right-6 {
+	margin-right: 50%;
+}
+
+.col-sm-offset-right-6 {
+	margin-right: 50%;
+}
+
+@media ( min-width :700px) {
+	.borderLeft {
+		border-left-style: groove;
+		border-top-style: groove;
+	}
+
+.thumbnail {
+    line-height: 20px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    word-break: normal;
+}
+.thumbnail img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.gallery-box {
+    width: 200px;
+    padding: 5px;
+    margin: 7px;
+    float: left;
+    min-height: 200px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+.gallery-box .progress {
+    margin-bottom: 0;
+}
+.gallery-box .thumbnail {
+    height: 188px;
+    width: 188px;
+}
+.gallery-box .title {
+    height: 22px;
+    overflow: hidden;
+    display: block;
+}
+
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  /*margin: 10px;*/
+}
+.fileUpload input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.sleenHeaderPainel{
+  padding: 2px 9px;
+}
+
+.img-index {
+  padding-left: 0%
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    .botaoCancelarModal {
+        padding: 4% 28%;
+    }
+
+    /* md
+    width: 100%;
+    height: 34px;*/
+
+  /*    width: 100%;
+  height: 34px;*/
+}
+
+.align-right {
+  padding-right:0;
+}
+
+.alinhar-esquerda {
+  padding-left: 0;
+}
+
+  /*Small grid (≥768px) = .col-sm-*
+  Medium grid (≥992px) = .col-md-*
+  Large grid (≥1200px) = .col-lg-**/
+}  
+
+.div-margin-top {
+  margin-top: 1%;
+}
+
+.label-color {
+  font-size: 13px;
+}
+
+.red-text {
+  color: #D10000;
+}
+
+.blue-text {
+  color: #008BFF;
+}
+
+.black-text {
+  color:#000000;  
+}
+
+/*
+  START FULL MODAL
+*/
+.modal-fullscreen {
+  background: transparent;
+}
+.modal-fullscreen .modal-content {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+  background: black;
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+  opacity: .30;
+  filter: alpha(opacity=97);
+}
+
+.custom-fullmodal {
+  background-color: white;
+  min-height: 800px;
+}
+
+.custom-fullmodal-header {
+  padding-bottom: 42px;
+}
+
+.modal-fullscreen .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+/*
+  END FULL MODAL
+*/
+
+.cursor-row-table{
+  cursor: default;
+}
+
+.cursor-row-table{
+  cursor: default;
+}
+
+input[type="text"], input[type="email"], input[type="number"], input[type="password"], select, textarea, .thumbnail{
+  border: 1px solid #707070 !important;
+}
+
+.spinner {
+  animation: rotate 0.5s infinite linear;
+}
+
+.signal {
+  position: absolute;
+  top: 50%;
+  border: 5px solid #333;
+  border-radius: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  width: 30px;
+  margin-left: 10px;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}
+
+@keyframes pulsate {
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+/* first loading */

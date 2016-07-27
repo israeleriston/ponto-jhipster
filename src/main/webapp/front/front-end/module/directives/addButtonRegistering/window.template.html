@@ -1,0 +1,13 @@
+<div modal-render="{{$isRendered}}" tabindex="-1" role="dialog" class="modal modal-fullscreen"
+    uib-modal-animation-class="fade"
+    modal-in-class="in"
+    ng-style="{'z-index': 1050 + index*10, display: 'block'}">
+    <div class="modal-dialog custom-fullmodal">
+      <div class="modal-content">
+        <div class="custom-fullmodal-header" data-ng-controller="ModalInstanceController as vm">
+          <button type="button" class="close" data-ng-click="vm.close()"data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" uib-modal-transclude></div>
+      </div>
+    </div>
+</div>

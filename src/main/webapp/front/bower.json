@@ -1,0 +1,242 @@
+{
+  "name": "architecture-front-end",
+  "version": "0.1.70",
+  "main": [
+    "./front-end/components/input-date/input-date.directive.js",
+    "./front-end/components/confirmation/confirmation.controller.js",
+    "./front-end/components/capitalize/capitalize.directive.js",
+    "./front-end/components/input-date/input-date.directive.js",
+    "./front-end/components/input-short-description/input-short-description.directive.js",
+    "./front-end/components/input-decimal-number/input-decimal-number.directive.js",
+    "./front-end/components/input-description/input-description.directive.js",
+    "./front-end/components/input-long-description/input-long-description.directive.js",
+    "./front-end/components/input-cnpj/input-cnpj.directive.js",
+    "./front-end/components/input-cpf/input-cpf.directive.js",
+    "./front-end/components/input-email/input-email.directive.js",
+    "./front-end/components/input-number/input-number.directive.js",
+    "./front-end/components/input-typeahead/input-typeahead.directive.js",
+    "./front-end/components/input-currency/input-currency.directive.js",
+    "./front-end/components/input-search/input-search.directive.js",
+    "./front-end/components/list-pagination/list-pagination.directive.js",
+    "./front-end/components/record-counter/record-counter.directive.js",
+    "./front-end/components/title-subpage/title-subpage.directive.js",
+    "./front-end/components/action-button/action-button.directive.js",
+    "./front-end/components/create-button/create-button.directive.js",
+    "./front-end/components/input-text-area/input-text-area.directive.js",
+    "./front-end/components/input-image/input-image.directive.js",
+    "./front-end/components/radio-group/radio-group.directive.js",
+    "./front-end/geral/geral-module.directives.js",
+    "./front-end/geral/geral-module.js",
+    "./front-end/geral/geral-module.filters.js",
+    "./front-end/geral/usuario/usuario-create.controller.js",
+    "./front-end/geral/usuario/usuario.service.js",
+    "./front-end/geral/usuario/usuario-list.controller.js",
+    "./front-end/geral/usuario/usuario-relatorio.service.js",
+    "./front-end/geral/usuario/usuario-module.controllers.js",
+    "./front-end/geral/usuario/usuario-relatorio.controller.js",
+    "./front-end/geral/usuario/edicao-usuario.directive.js",
+    "./front-end/geral/empresa/empresa.service.js",
+    "./front-end/geral/empresa/empresa-upload-image.controller.js",
+    "./front-end/geral/empresa/empresa-create.controller.js",
+    "./front-end/geral/empresa/empresa-module.controllers.js",
+    "./front-end/geral/empresa/empresa-edit.controller.js",
+    "./front-end/geral/empresa/empresa-context.controller.js",
+    "./front-end/geral/empresa/empresa-list.controller.js",
+    "./front-end/geral/geral-module.services.js",
+    "./front-end/geral/unidade-federativa/unidade-federativa-module.controllers.js",
+    "./front-end/geral/unidade-federativa/unidade-federativa-list.controller.js",
+    "./front-end/geral/unidade-federativa/unidade-federativa-edit.controller.js",
+    "./front-end/geral/unidade-federativa/unidade-federativa.service.js",
+    "./front-end/geral/unidade-federativa/unidade-federativa-create.controller.js",
+    "./front-end/geral/geral-module.factories.js",
+    "./front-end/geral/pais/pais-edit.controller.js",
+    "./front-end/geral/pais/pais-list.controller.js",
+    "./front-end/geral/pais/pais-module.controllers.js",
+    "./front-end/geral/pais/pais-create.controller.js",
+    "./front-end/geral/pais/pais.service.js",
+    "./front-end/geral/cidade/cidade-list.controller.js",
+    "./front-end/geral/cidade/cidade-module.controllers.js",
+    "./front-end/geral/cidade/cidade-edit.controller.js",
+    "./front-end/geral/cidade/cidade.service.js",
+    "./front-end/geral/cidade/cidade-create.controller.js",
+    "./front-end/geral/parametro/parametro.module.js",
+    "./front-end/geral/parametro/parametro.service.js",
+    "./front-end/geral/parametro/parametro-create.controller.js",
+    "./front-end/geral/parametro/parametro-list.controller.js",
+    "./front-end/geral/parametro/parametro-edit.controller.js",
+    "./front-end/geral/geral-module.controllers.js",
+    "./front-end/geral/perfil-usuario/perfil-usuario.service.js",
+    "./front-end/geral/perfil-usuario/perfil-usuario-create.controller.js",
+    "./front-end/geral/perfil-usuario/perfil-usuario-module.controllers.js",
+    "./front-end/geral/perfil-usuario/perfil-usuario-edit.controller.js",
+    "./front-end/geral/perfil-usuario/perfil-usuario-list.controller.js",
+    "./front-end/geral/perfil-acesso/perfil-acesso-module.controllers.js",
+    "./front-end/geral/perfil-acesso/perfil-acesso.service.js",
+    "./front-end/geral/perfil-acesso/perfil-acesso-edit.controller.js",
+    "./front-end/geral/perfil-acesso/perfil-acesso-list.controller.js",
+    "./front-end/geral/perfil-acesso/perfil-acesso-create.controller.js",
+    "./bower_components/angular/index.js",
+    "./bower_components/angular/angular.min.js",
+    "./bower_components/angular/angular.js",
+    "./bower_components/angular-i18/angular-locale_pt-br.js",
+    "./frontend.js",
+    "./front-end/module/module.filters.js",
+    "./front-end/module/module.controllers.js",
+    "./front-end/module/filters/endereco.filter.js",
+    "./front-end/module/filters/telefone.filter.js",
+    "./front-end/module/filters/cria-url-breadcrumb.filter.js",
+    "./front-end/module/filters/cnpj.filter.js",
+    "./front-end/module/filters/cpf.filter.js",
+    "./front-end/module/factories/http-interceptor.factory.js",
+    "./front-end/module/factories/create-command.factory.js",
+    "./front-end/module/factories/menu-build.factory.js",
+    "./front-end/module/factories/menu-service.factory.js",
+    "./front-end/module/factories/template-url-path.factory.js",
+    "./front-end/module/factories/message.factory.js",
+    "./front-end/module/factories/window-manager.factory.js",
+    "./front-end/module/directives/telefone/telefone.directive.js",
+    "./front-end/module/directives/telefone/telefone-mask.directive.js",
+    "./front-end/module/directives/telefone/telefone.service.js",
+    "./front-end/module/directives/telefone/telefone-module.directives.js",
+    "./front-end/module/directives/inputFocus/input-focus.directive.js",
+    "./front-end/module/directives/actionVerify/action-verify.directive.js",
+    "./front-end/module/directives/formButtonsSalvarVoltar/form-buttons-salvar-voltar.directive.js",
+    "./front-end/module/directives/addButtonRegistering/add-button-registering.directive.js",
+    "./front-end/module/directives/cep/cep-mask.directive.js",
+    "./front-end/module/directives/cep/cep-module.directives.js",
+    "./front-end/module/directives/endereco/endereco.directive.js",
+    "./front-end/module/directives/endereco/endereco.service.js",
+    "./front-end/module/directives/endereco/endereco-module.directives.js",
+    "./front-end/module/directives/cnpj/cnpj-mask.directive.js",
+    "./front-end/module/directives/justNumbers/just-numbers.directive.js",
+    "./front-end/module/directives/validation-typea-head/validation-typea-head.directive.js",
+    "./front-end/module/directives/masks/masks.directive.js",
+    "./front-end/module/directives/masks/jquery.maskedinput.min.js",
+    "./front-end/module/directives/masks/decimal-number/decimal-number.directive.js",
+    "./front-end/module/directives/change-on-key-up/change-on-key-up.directive.js",
+    "./front-end/module/directives/ng-caps-lock/ng-caps-lock.min.js",
+    "./front-end/module/services/template-service.service.js",
+    "./front-end/module/services/extended-template.service.js",
+    "./front-end/module/services/modal-confirmation.service.js",
+    "./front-end/module/services/bus-events.service.js",
+    "./front-end/module/services/upload.service.js",
+    "./front-end/module/services/url.service.js",
+    "./front-end/module/services/local-service.service.js",
+    "./front-end/module/services/data-format.service.js",
+    "./front-end/module/services/step-by-step.service.js",
+    "./front-end/module/module.directives.js",
+    "./front-end/module/module.factories.js",
+    "./front-end/module/route-config.js",
+    "./front-end/module/module.services.js",
+    "./front-end/css/app.css",
+    "./front-end/css/float-button-action.css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-base64": "~2.0.4",
+    "angular-bootstrap" : "~0.14.3",
+    "angular-cookies": "~1.4.8",
+    "angular-i18n": "~1.4.8",
+    "angular-messages": "~1.4.8",
+    "angular-ui-router": "*",
+    "angular-uuid": "~0.1.0",
+    "angular.treeview": "*",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "jstree": "git://github.com/vakata/jstree#~3.1.0",
+    "ng-file-upload-shim": "~3.1.2",
+    "ng-mfb": "~0.6.2",
+    "toastr": "~2.1.1",
+    "angular-file-saver": "~1.0.2",
+    "Ionicons": "ionicons#~2.0.1"
+  },
+  "overrides": {
+    "angular": {
+      "main": "angular.min.js"
+    },
+    "angular-animate": {
+      "main": "angular-animate.min.js"
+    },
+    "angular-base64": {
+      "main": "angular-base64.min.js"
+    },
+    "angular-bootstrap": {
+      "main": [
+        "ui-bootstrap-csp.css",
+        "ui-bootstrap.min.js",
+        "ui-bootstrap-tpls.min.js"
+      ]
+    },
+    "angular-cookies": {
+      "main": "angular-cookies.min.js"
+    },
+    "angular-i18n": {
+      "main": [
+        "angular-locale_pt-br.js",
+        "angular-locale_en.js"
+      ]
+    },
+    "angular-messages": {
+      "main": "angular-messages.min.js"
+    },
+    "angular-ui-router": {
+      "main": "release/angular-ui-router.min.js"
+    },
+    "angular-uuid": {
+      "main": "uuid.min.js"
+    },
+    "angular.treeview": {
+      "main": [
+        "css/angular.treeview.css",
+        "angular.treeview.min.js"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.min.css",
+        "dist/css/bootstrap-theme.min.css",
+        "dist/js/bootstrap.min.js"
+      ]
+    },
+    "jquery": {
+      "main": "dist/jquery.min.js"
+    },
+    "jstree": {
+      "main": [
+        "dist/themes/default/style.min.css",
+        "dist/jstree.min.js"
+      ]
+    },
+    "ng-file-upload-shim": {
+      "main": [
+        "angular-file-upload-all.min.css",
+        "angular-file-upload-shim.min.js",
+        "angular-file-upload.min.js"
+      ]
+    },
+    "ng-mfb": {
+      "main": [
+        "mfb/dist/mfb.min.css",
+        "src/mfb-directive.js"
+      ]
+    },
+    "toastr": {
+      "main": [
+        "toastr.min.css",
+        "toastr.min.js"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": ">= 1.0.8"
+  }
+}

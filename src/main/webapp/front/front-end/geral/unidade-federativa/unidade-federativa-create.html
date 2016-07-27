@@ -1,0 +1,26 @@
+<div class="container">
+	<title-subpage description="Cadastro de Unidades Federativas" icon="glyphicon-globe"></title-subpage>
+	<form role="form" data-ng-submit="vm.save()"
+		name="formUnidadeFederativa">
+		<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+			<input-short-description object="vm.unidadeFederativa.nome" label="Nome" name="nome" is-required="true" is-upper-case="true"></input-short-description>
+		</div>
+		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+			<input-short-description object="vm.unidadeFederativa.sigla" label="Sigla" name="sigla" is-required="true" max-length="3" min-length="2" is-upper-case="true"></input-short-description>
+		</div>
+		<div class="col-xs-10 col-sm-4 col-md-4 col-lg-4">
+			<input-typeahead object="vm.unidadeFederativa.pais" label="País" func="vm.getPaises" name="pais" is-required="true" field="nome"></input-typeahead>
+		</div>
+    <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 form-group">
+      <label for="">&nbsp;</label>
+        <add-button-registering class="form-control" action-verify="CRIAR_PAIS"></add-button-registering>
+    </div>
+		<div class="clearfix">&nbsp;</div>
+		<div class="col-xs-12 col-sm-offset-6 col-sm-3 col-md-offset-8 col-md-2">
+			<action-button action-type="list" action-verify-name="LISTAR_UNIDADE_FEDERATIVA" type-button="button" label="Voltar" ng-click="vm.backToList()"></action-button>
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-2">
+			<action-button action-type="create" action-verify-name="CRIAR_UNIDADE_FEDERATIVA" type-button="submit" label="Salvar" is-disabled="formUnidadeFederativa.$invalid"></action-button>
+		</div>
+	</form>
+</div>

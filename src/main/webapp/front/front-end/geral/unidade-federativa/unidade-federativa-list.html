@@ -1,0 +1,66 @@
+<div class="container">
+	<h3 class="text-center position-margin-top-default">
+		<span class="glyphicon glyphicon-list"></span> Listagem de Unidades
+		Federativas
+	</h3>
+	<form role="form" data-ng-submit="vm.findUnidadesFederativas(vm.parametroBusca)">
+		<div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-md-offset-2 col-lg-offset-3 col-lg-6 col-lg-offset-3">
+			<label class="control-label"></label>
+			<div class="inner-addon right-addon">
+				<i class="glyphicon glyphicon-search"></i> <input autocomplete="off" type="text"
+					class="form-control" id="searchField" data-ng-model="vm.parametroBusca"
+					placeholder="Pesquisar" data-capitalize/>
+			</div>
+		</div>
+	</form>
+	<div class="col-xs-12 col-sm-12">
+		<div class="help-block position-margin-top-default">
+			<span data-ng-bind="vm.unidadesFederativas.data.length"></span> de
+			<span data-ng-bind="vm.unidadesFederativas.recordCount"></span> registros 
+		</div>
+	</div>
+	<div class="table-responsive col-xs-12 col-sm-12">
+		<table
+			class="table table-row-resize table-striped position-margin-top-default">
+			<thead>
+				<th class="col-sm-5">Nome</th>
+				<th class="col-sm-2">Sigla</th>
+				<th class="col-sm-4">País</th>
+				<th class="col-sm-1">Ações</th>
+			</thead>
+			<tbody>
+				<tr
+					data-ng-repeat="unidadeFederativa in vm.unidadesFederativas.data">
+					<td data-ng-bind="unidadeFederativa.nome"></td>
+					<td data-ng-bind="unidadeFederativa.sigla"></td>
+					<td data-ng-bind="unidadeFederativa.pais"></td>
+					<td>
+						<button type="button" class="btn btn-warning btn-sm" action-verify="EDITAR_UNIDADE_FEDERATIVA"
+							data-ng-click="vm.goToEdit(unidadeFederativa.id)">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+						<button type="button" class="btn btn-danger btn-sm" action-verify="REMOVER_UNIDADE_FEDERATIVA"
+							data-ng-click="vm.remove(unidadeFederativa,'',$index)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center col-sm-12">
+		<pagination boundary-links="true" num-pages="vm.unidadesFederativas.count"
+			total-items="vm.unidadesFederativas.recordCount" items-per-page="10"
+			data-ng-model="vm.pageNumber"
+			ng-change="vm.findUnidadesFederativas(vm.parametroBusca, vm.pageNumber)"
+			class="pagination-lg position-margin-top-default"
+			previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+			last-text="&raquo;"> </pagination>
+	</div>
+</div>
+<div class="container-fluid">
+	<button class="col-xs-12 col-sm-12 btn-circle btn-xl btn btn-primary" action-verify="CRIAR_UNIDADE_FEDERATIVA"
+		type="button" title="Incluir nova UF" data-ng-click="vm.create()">
+		<i class="glyphicon glyphicon-plus"></i>
+	</button>
+</div>

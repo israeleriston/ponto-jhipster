@@ -1,0 +1,59 @@
+<div class="modal-body">
+  <h3 class="modal-title text-center">Cadastro de Endereço</h3>
+  <form name="formEndereco" data-ng-submit="vm.salvar()" novalidate autocomplete="off">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+      <div class="form-group has-feedback required" data-ng-class="{'has-error' : formEndereco.tipoEndereco.$error.minlength}">
+        <label for="tipoDoEndereco" class="control-label">Tipo de Endereço:</label>
+        <select data-ng-model="vm.endereco.tipoendereco" name="tipoEndereco" class="form-control"
+                data-ng-options="tipoEndereco for tipoEndereco in vm.tiposDeEndereco" data-change-on-keyup required="required"></select>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9 pull-left">
+      <div class="form-group pull-left has-feedback required" data-ng-class="{'has-error' : formEndereco.cep.$error.cep}">
+        <label for="cepEndereco" class="control-label">Cep:</label>
+        <input autocomplete="off" type="text" name="cep" data-ng-model="vm.endereco.cep" class="form-control" required="required" data-cep-mask ng-blur="vm.buscarCep()">
+        <span class="glyphicon glyphicon-ok form-control-feedback" data-ng-show="formEndereco.cep.$valid"></span>
+        <span class="help-block" data-ng-show="formEndereco.cep.$error.cep">CEP incompleto</span>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-5 col-md-3 col-lg-3">
+      <div class="col-xs-10 col-sm-9 col-md-9 col-lg-9 withoutPadding border-right-united">
+        <input-typeahead object="vm.endereco.uf" label="UF" func="vm.getUfs" name="uf" is-required="true" field="sigla" is-upper-case="true" is-disabled="vm.cepBloqueado"></input-typeahead>
+      </div>
+      <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3 withoutPadding border-left-united">
+        <label class="control-label">&nbsp;</label>
+        <add-button-registering action-verify="CRIAR_UNIDADE_FEDERATIVA"></add-button-registering>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-7 col-md-9 col-lg-9">
+      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-11 withoutPadding border-right-united">
+        <input-typeahead object="vm.endereco.cidade" label="Cidade" func="vm.getCidades" name="cidade" is-required="true" field="nome" is-upper-case="true" is-disabled="!vm.isValidUf() || vm.cepBloqueado"></input-typeahead>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-1 withoutPadding border-left-united">
+        <label class="control-label">&nbsp;</label>
+        <add-button-registering action-verify="CRIAR_CIDADE"></add-button-registering>
+      </div>
+    </div>
+    <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
+    <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+      <input-typeahead object="vm.endereco.tipologradouro" label="Tipo Logradouro" func="vm.getTipoEnderecosTypeAHead" name="tipoLogradouro" is-required="true" field="nome" is-upper-case="true" is-disabled="vm.cepBloqueado && !vm.cepUnico"></input-typeahead>
+    </div>
+    <div class="col-xs-8 col-sm-8 col-md-9 col-lg-9">
+      <input-description object="vm.endereco.logradouro" label="Logradouro:" name="logradouro" is-required="true" is-upper-case="true" is-disabled="vm.cepBloqueado && !vm.cepUnico"></input-description>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+      <input-short-description object="vm.endereco.numero" label="Número:" min-length="1" name="numero" is-required="false"></input-short-description>
+    </div>
+    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6">
+      <input-short-description object="vm.endereco.bairro" label="Bairro:" name="bairro" is-required="true" is-upper-case="true" is-disabled="vm.cepBloqueado && !vm.cepUnico"></input-short-description>
+    </div>
+    <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 form-group">
+      <input-short-description object="vm.endereco.complemento" label="Complemento:" name="complemento" is-required="false" is-upper-case="true"></input-short-description>
+    </div>
+    <div class="clearfix"></div>
+    <div class="form-group text-right">
+      <button type="submit" data-ng-disabled="formEndereco.$invalid" class="btn btn-primary">{{vm.descricaoBotao}}</button>
+      <button type="button" class="btn btn-default" data-ng-click="vm.fechar()">Fechar</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,44 @@
+<div class="modal-body">
+  <h3 class="text-center">Edição de Usuario</h3>
+  <form name="formEdicaoDeUsuario" data-ng-submit="vm.editar()" novalidate>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+			<input-short-description object="vm.usuario.nome" label="Nome" name="nome" is-required="true" is-upper-case="true"></input-short-description>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+			<input-short-description object="vm.usuario.sobrenome" label="Sobrenome" name="sobrenome" is-required="true" is-upper-case="true"></input-short-description>
+    </div>
+    <div class="clearfix visible-sm-block"></div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <input-email data-object="vm.usuario.email" data-is-required="true" data-name="email" data-label="Email"></input-email>
+    </div>
+    <div class="clearfix visible-md-block visible-lg-block"></div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <input-short-description data-object="vm.usuario.login" is-disabled="true" data-max-length="30" data-is-required="true" data-name="login" data-label="Login"></input-short-description>
+    </div>
+    <div class="clearfix visible-sm-block"></div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="form-group {{formEdicaoDeUsuario.senha.$error.pattern || vm.senhaEhDiferenteDeConfirmacao() ? 'has-error' : ''}} has-feedback required">
+        <label class="control-label">Senha</label>
+        <input autocomplete="off" type="password" class="form-control" data-ng-maxlength="50" maxlength="50" name="senha" data-ng-model="vm.usuario.senha" required="required">
+          <span class="glyphicon glyphicon-ok form-control-feedback" data-ng-show="formEdicaoDeUsuario.senha.$valid && !vm.senhaEhDiferenteDeConfirmacao()"></span>
+        <div data-ng-messages="formEdicaoDeUsuario.senha.$error" data-ng-if="formEdicaoDeUsuario.senha.$dirty">
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="form-group {{formEdicaoDeUsuario.confirmacaoDeSenha.$error.pattern || vm.senhaEhDiferenteDeConfirmacao() ? 'has-error' : ''}} has-feedback required">
+        <label class="control-label">Confirmar Senha</label>
+        <input autocomplete="off" type="password" class="form-control" data-ng-maxlength="50" maxlength="50" name="confirmacaoDeSenha" data-ng-model="vm.usuario.confirmacaoDeSenha" required="required">
+          <span class="glyphicon glyphicon-ok form-control-feedback" data-ng-show="formEdicaoDeUsuario.confirmacaoDeSenha.$valid
+           && !vm.senhaEhDiferenteDeConfirmacao()"></span>
+          <span class="help-block" data-ng-show="vm.senhaEhDiferenteDeConfirmacao()">As senhas estão diferentes. Favor preencher corretamente.</span>
+        <div data-ng-messages="formEdicaoDeUsuario.confirmacaoDeSenha.$error" data-ng-if="formEdicaoDeUsuario.confirmacaoDeSenha.$dirty">
+        </div>
+      </div>
+    </div>
+    <div class="form-group text-right">
+      <button type="submit" data-ng-disabled="formEdicaoDeUsuario.$invalid" class="btn btn-primary">Salvar</button>
+      <button type="button" class="btn btn-default" data-ng-click="vm.cancel()">Fechar</button>
+    </div>
+  </form>
+</div>

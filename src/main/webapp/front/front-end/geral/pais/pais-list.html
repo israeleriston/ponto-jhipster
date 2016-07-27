@@ -1,0 +1,31 @@
+<div class="container">
+	<title-subpage data-description="Listagem de Países" data-icon="glyphicon-list"></title-subpage>
+	<input-search data-func="vm.findPaises" data-search-field="vm.busca"></input-search>
+	<record-counter data-list="vm.paises"></record-counter>
+	<div class="table-responsive col-xs-12 col-sm-12 col-md-12">
+		<table
+			class="table table-row-resize table-striped position-margin-top-default">
+			<thead>
+				<th class="col-xs-4 col-sm-4 col-md- 4">Nome</th>
+				<th class="col-sm-2 col-md-2">Sigla (2 letras)</th>
+				<th class="col-sm-2 col-md-2">Sigla (3 letras)</th>
+				<th class="col-sm-2 col-md-2">Código de discagem</th>
+				<th class="col-sm-2 col-md-2">Ações</th>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="pais in vm.paises.data">
+					<td>{{pais.nome}}</td>
+					<td>{{pais.sigladuasletras}}</td>
+					<td>{{pais.siglatresletras}}</td>
+					<td>{{pais.codigodediscagem}}</td>
+					<td>
+						<action-button data-ng-click="vm.goToEdit(pais.id)" data-action-type="edit" data-type-button="button" data-action-verify-name="EDITAR_PAIS"></action-button>
+						<action-button data-ng-click="vm.remove(pais,'')" data-action-type="remove" data-type-button="button" data-action-verify-name="REMOVER_PAIS"></action-button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<list-pagination data-list="vm.paises" data-func="vm.findPaises"></list-pagination>
+</div>
+<create-button data-func="vm.create" data-label="PAIS" data-action-verify-name="CRIAR_PAIS"></create-button>

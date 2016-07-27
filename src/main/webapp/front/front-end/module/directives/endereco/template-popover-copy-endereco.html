@@ -1,0 +1,9 @@
+<div style="margin-bottom:7px;">
+  <span class="bold">Copiar para o tipo:</span><br>
+</div>
+<div data-ng-repeat="tipo in tiposDeEndereco">
+  <label class="btn btn-default btn-md" data-ng-click="copiarEndereco(endereco, tipo)" ng-disabled="copiarEnderecoDisabled(tipo)">
+    {{tipo}}
+  </label>
+  <br>
+</div>

@@ -1,0 +1,9 @@
+ <div class="form-group has-feedback {{isRequired ? 'required' : ''}}">
+  <label class="control-label">Resposta</label>
+  <div class="{{isInline ? 'radio-inline' : 'radio'}}" data-ng-repeat="optionItem in optionsSource">
+    <label>
+      <input type="radio" data-ng-model="$parent.modelValueId" data-ng-value="optionItem.id">
+        {{optionItem[optionLabelField]}} <br> 
+    </label>
+  </div>
+</div>

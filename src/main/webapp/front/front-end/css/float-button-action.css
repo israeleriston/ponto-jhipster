@@ -1,0 +1,62 @@
+.mfb-component__button--main {
+  background-color: #2e6da4;
+}
+
+.mfb-component__button--child {
+  background-color: #2e6da4;
+}
+
+a.mfb-component__button--child :hover {
+	color: #F5EBE6;
+}
+
+a.mfb-component__button--main :hover {
+	color: #F5EBE6;
+}
+
+.mfb-component__button--main {
+  background-color: #2e6da4;
+}
+
+.mfb-component__button--child {
+  background-color: #2e6da4;
+}
+
+a.mfb-component__button--child :hover {
+  color: #F5EBE6;
+}
+
+a.mfb-component__button--main :hover {
+  color: #F5EBE6;
+}
+
+@media (min-width: 768px) {
+  .fixed-action-button
+  {   
+      position:fixed;
+      bottom:0px;
+      right:15px;
+      height:55px;
+      width: 55px;
+      margin-bottom:50px;
+      border-radius: 100%;
+      outline: none;
+      box-shadow: 1px 3px 5px #888888;
+  }
+}
+
+@media (max-width: 768px) {
+  .fixed-action-button
+  {   
+      position:fixed;
+      bottom:0px;
+      right:0px;
+      height:55px;
+      width: 55px;
+      margin-bottom:10px;
+      border-radius: 100%;
+      outline: none;
+      box-shadow: 1px 3px 5px #888888;
+  }
+}
+

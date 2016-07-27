@@ -1,0 +1,28 @@
+<div class="container">
+	<title-subpage description="Cadastro de Cidades" icon="glyphicon-home"></title-subpage>
+	<form role="form" data-ng-submit="vm.save()" name="formCidade">
+		<div class="col-xs-12 col-sm-12 col-md-10">
+			<input-short-description object="vm.cidade.nome" label="Nome" name="nome" is-required="true" is-upper-case="true"></input-short-description>
+		</div>
+		<div class="col-xs-6 col-sm-2 col-md-2">
+			<input-short-description object="vm.cidade.sigla" label="Sigla" name="sigla" is-required="true" data-min-length="1" data-max-length="3" is-upper-case="true"></input-short-description>
+		</div>
+		<div class="col-xs-6 col-sm-3 col-md-3">
+			<input-short-description object="vm.cidade.codigoDeDiscagem" label="Cód. de Discagem" name="codigoDeDiscagem" is-required="true" data-min-length="2" data-max-length="4" is-upper-case="true"></input-short-description>
+		</div>
+		<div class="col-xs-12 col-sm-7 col-md-8">
+			<input-typeahead object="vm.unidadeFederativa" func="vm.getUfs" label="Unidade federativa" field="sigla" name="unidadeFederativa" is-required="true" ></input-typeahead>
+		</div>
+    <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 form-group">
+      <label for="">&nbsp;</label>
+        <add-button-registering class="form-control" action-verify="CRIAR_UNIDADE_FEDERATIVA"></add-button-registering>
+    </div>
+		<div class="clearfix">&nbsp;</div>
+		<div class="col-xs-12 col-sm-offset-6 col-sm-3 col-md-offset-8 col-md-2">
+			<action-button action-type="list" action-verify-name="LISTAR_CIDADE" type-button="button" label="Voltar" ng-click="vm.backToList()"></action-button>
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-2">
+			<action-button action-type="create" action-verify-name="CRIAR_CIDADE" type-button="submit" label="Salvar" is-disabled="formCidade.$invalid"></action-button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,73 @@
+<div class="container">
+	<h3 class="text-center position-margin-top-default">
+		<span class="glyphicon glyphicon-list"></span> Listagem de Perfis do
+		Usuário
+	</h3>
+	<div class="col-sm-12 col-md-12 col-xs-12 text-left">
+		<p><h4>Dados do usuário:</h4>
+		<p><h5><strong>Nome: </strong><span data-ng-bind="vm.user.nome "></span><span data-ng-bind="vm.usuario.sobrenome "></span></h5>
+		<p><h5><strong>E-mail: </strong><span data-ng-bind="vm.user.email.value"></span></h5>
+		<p><h5><strong>Status: </strong><span data-ng-bind="vm.user.status "></span></h5>
+	</div>
+	<form role="form" data-ng-submit="vm.findPerfis(vm.parametroBusca)">
+		<div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-md-offset-2 col-lg-offset-3 col-lg-6 col-lg-offset-3">
+			<label class="control-label"></label>
+			<div class="inner-addon right-addon">
+				<i class="glyphicon glyphicon-search"></i> <input autocomplete="off" type="text"
+					class="form-control" id="searchField"
+					data-ng-model="vm.parametroBusca" placeholder="Pesquisar" data-capitalize/>
+			</div>
+		</div>
+	</form>
+	<div class="col-xs-12 col-sm-12">
+		<div class="help-block position-margin-top-default">
+			<span data-ng-bind="vm.perfisDeUsuario.data.length"></span> de <span
+				data-ng-bind="vm.perfisDeUsuario.recordCount"></span>
+			registros.
+		</div>
+		<div class="table-responsive col-xs-12 col-sm-12">
+			<table
+				class="table table-row-resize table-striped position-margin-top-default">
+				<thead>
+					<th class="col-xs-6 col-sm-8 col-md-10">Empresa</th>
+					<th class="col-xs-6 col-sm-4 col-md-2">Ações</th>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="perfil in vm.perfisDeUsuario.data">
+						<td data-ng-bind="perfil.nomefantasia"></td>
+						<td>
+							<button type="button" class="btn btn-warning btn-sm" action-verify="EDITAR_PERFIL_DO_USUARIO"
+								data-ng-click="vm.goToEdit(perfil.id)"
+								title="Editar dados do perfil do usuário.">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</button>
+							<button type="button" class="btn btn-danger btn-sm" action-verify="REMOVER_PERFIL_DO_USUARIO"
+								data-ng-click="vm.remove(perfil)"
+								title="Excluir perfil do usuário.">
+								<span class="glyphicon glyphicon-trash"></span>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="text-center col-sm-12">
+			<pagination boundary-links="true"
+				num-pages="vm.perfisDoUsuario.count"
+				total-items="vm.perfisDeUsuario.recordCount"
+				items-per-page="vm.perfisDeUsuario.size"
+				data-ng-model="vm.pageNumber"
+				max-size="5"
+				ng-change="vm.findPerfis(vm.parametroBusca, vm.pageNumber)"
+				class="pagination-lg position-margin-top-default"
+				previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+				last-text="&raquo;"> </pagination>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<button class="col-xs-12 col-sm-12 btn-circle btn-xl btn btn-primary" action-verify="CRIAR_PERFIL_DO_USUARIO"
+			type="button" title="Incluir um perfil para este usuário."
+			data-ng-click="vm.create()">
+			<i class="glyphicon glyphicon-plus"></i>
+		</button>
+	</div>

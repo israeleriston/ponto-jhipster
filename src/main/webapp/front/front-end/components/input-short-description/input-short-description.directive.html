@@ -1,0 +1,10 @@
+<div class="form-group has-feedback" data-ng-form="formInputShortDescription" data-ng-class="{'has-error': formInputShortDescription[name].$invalid && formInputShortDescription[name].$dirty}">
+  <label class="control-label" data-ng-show="showLabel">{{label}}</label>
+  <input autocomplete="off" type="text" class="form-control" data-ng-minlength="minLength" data-ng-maxlength="maxLength" name="{{name}}" data-ng-model="object" maxlength="{{maxLength}}" data-ng-required="isRequired" data-capitalize="{{isUpperCase}}" data-ng-disabled="isDisabled">
+    <span class="form-control-feedback" data-ng-if="formInputShortDescription[name].$valid && object && formInputShortDescription[name].$dirty" data-ng-class="{'glyphicon glyphicon-ok' : formInputShortDescription[name].$valid}"></span>
+  <div data-ng-messages="formInputShortDescription[name].$error" data-ng-if="formInputShortDescription[name].$dirty">
+    <span class="help-block" data-ng-message="minlength"> {{minLengthMessage}} </span>
+    <span class="help-block" data-ng-message="maxlength"> {{maxLengthMessage}} </span>
+    <span class="help-block" data-ng-message="required"> {{requiredMessage}} </span>
+  </div>
+</div>

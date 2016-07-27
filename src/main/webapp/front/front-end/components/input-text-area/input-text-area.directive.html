@@ -1,0 +1,11 @@
+<div class="form-group has-feedback {{isRequired ? 'required' 
+: ''}}" data-ng-form="formInputTextArea" data-ng-class="{'has-error': formInputTextArea[name].$invalid && formInputTextArea[name].$dirty}">
+  <label class="control-label" data-ng-show="showLabel">{{label}}</label>
+  <textarea type="text" class="form-control textFieldNotResize" data-ng-minlength="minLength" rows="{{rowsLength}}" data-ng-maxlength="maxLength" name="{{name}}" data-ng-model="object" maxlength="{{maxLength}}" data-ng-required="isRequired" data-capitalize="{{isUpperCase}}" data-ng-disabled="isDisabled"></textarea>
+    <span class="form-control-feedback" data-ng-if="formInputTextArea[name].$valid" data-ng-class="{'glyphicon glyphicon-ok' : formInputTextArea[name].$valid}"></span>
+  <div data-ng-messages="formInputTextArea[name].$error" data-ng-if="formInputTextArea[name].$dirty">
+    <span class="help-block" data-ng-message="minlength"> {{minLengthMessage}} </span>
+    <span class="help-block" data-ng-message="maxlength"> {{maxLengthMessage}} </span>
+    <span class="help-block" data-ng-message="required"> {{requiredMessage}} </span>
+  </div>
+</div>

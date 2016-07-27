@@ -1,0 +1,107 @@
+<div class="container">
+	<h3 class="text-center position-margin-top-default">
+		<span class="glyphicon glyphicon-file"></span> Relatório de Usuários
+	</h3>
+	<form role="form" data-ng-submit="vm.generateReport()"
+		name="formRelatorio">
+		<div class="col-xs-12 col-sm-12 col-md-12">
+			<h4 class="text-left">
+				<span class="glyphicon glyphicon-filter"></span> Filtros:
+			</h4>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-7">
+			<div class="form-group">
+				<div class="panel panel-info">
+				  <div class="panel-heading sleenHeaderPainel"><strong>Empresa</strong></div>
+				  <div class="panel-body">
+			  		<input-typeahead object="vm.empresa" func="vm.getEmpresas" label="Selecione a empresa:" field="razaosocial" name="empresa" is-required="true" ></input-typeahead>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-5">
+			<div class="form-group">
+				<div class="panel panel-info">
+				  <div class="panel-heading sleenHeaderPainel"><strong>Status do usuário</strong></div>
+				  <div class="panel-body">
+				  	<label class="control-label">Selecione o status: </label>
+				  	<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="col-xs-12 col-sm-4 col-md-4">
+							<input autocomplete="off" type="radio" name="optionStatus" value="ATIVO"
+								data-ng-click="vm.statusCriterios='Ativo'"
+								data-ng-model="vm.statusQuery">Ativo
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<input autocomplete="off" type="radio" name="optionStatus" value="INATIVO"
+									data-ng-click="vm.statusCriterios='Inativo'"
+									data-ng-model="vm.statusQuery">Inativo
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<input autocomplete="off" type="radio" name="optionStatus" value="ATIVO,INATIVO"
+									data-ng-click="vm.statusCriterios='Ativo e Inativo'"
+									data-ng-model="vm.statusQuery">Ambos
+							</div>
+						</div>
+				  </div>
+				</div>
+			</div>
+		</div>		
+		<div class="col-xs-12 col-sm-7 col-md-7">
+			<div class="form-group">
+				<div class="panel panel-info">
+				  <div class="panel-heading sleenHeaderPainel"><strong>Ordenação</strong></div>
+				  <div class="panel-body">
+						<label class="control-label">Escolha a forma de ordenação</label>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<input autocomplete="off" type="radio" name="optionOrdenacao"
+									data-ng-click="vm.ordenacaoCriterios='Nome'" value="nome"
+									data-ng-model="vm.ordenacaoQuery">Nome
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<input autocomplete="off" type="radio" name="optionOrdenacao"
+									data-ng-click="vm.ordenacaoCriterios='Login'" value="login"
+									data-ng-model="vm.ordenacaoQuery">Login
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-4">
+								<input autocomplete="off" type="radio" name="optionOrdenacao"
+									data-ng-click="vm.ordenacaoCriterios = 'E-mail'" value="email"
+									data-ng-model="vm.ordenacaoQuery">E-mail
+							</div>
+						</div>
+				  </div>
+				</div>
+			</div>			
+		</div>
+		<div class="col-xs-12 col-sm-5 col-md-5">
+			<div class="form-group">
+				<div class="panel panel-info">
+				  <div class="panel-heading sleenHeaderPainel"><strong>Ordem</strong></div>
+				  <div class="panel-body">
+				  	<label class="control-label">Selecione a ordem</label>
+				  	<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<input autocomplete="off" type="radio" name="optionOrdenacaoOrdem"
+									data-ng-click="vm.ordenacaoOrdemCriterios = 'Crescente'"
+									value="asc" data-ng-model="vm.ordenacaoOrdemQuery"> <span
+									class="glyphicon glyphicon-sort-by-alphabet"></span>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-6">
+								<input autocomplete="off" type="radio" name="optionOrdenacaoOrdem"
+									data-ng-click="vm.ordenacaoOrdemCriterios = 'Descrescente'"
+									value="desc" data-ng-model="vm.ordenacaoOrdemQuery"> <span
+									class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+							</div>
+						</div>
+				  </div>
+				</div>
+			</div>			
+		</div>
+		<div
+			class="col-xs-12 col-sm-4 col-sm-offset-8 col-md-2 col-md-offset-10 form-group">
+			<button type="submit" class="btn btn-success form-control">
+				<span class="glyphicon glyphicon-refresh"></span> Gerar Relatório
+			</button>
+		</div>
+	</form>
+</div>

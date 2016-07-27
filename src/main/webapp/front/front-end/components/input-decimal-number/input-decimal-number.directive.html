@@ -1,0 +1,9 @@
+<div class="form-group has-feedback" data-ng-form="formInputDecimalNumber" id="{{id}}" data-ng-class="{'has-error': formInputDecimalNumber[name].$invalid && formInputDecimalNumber[name].$dirty}">
+  <label class="control-label" data-ng-show="showLabel">{{label}}</label>
+  <input autocomplete="off" type="text" decimal-number class="form-control" name="{{name}}" data-ng-model="object" maxlength="{{maxLength}}" max="{{max}}" min="{{min}}" qnt-decimal-places="{{qntDecimalPlaces}}" data-ng-required="isRequired" data-ng-disabled="isDisabled">  
+  <span class="form-control-feedback" data-ng-if="formInputDecimalNumber[name].$valid" data-ng-class="{'glyphicon glyphicon-ok' : formInputDecimalNumber[name].$valid}"></span>
+  <div data-ng-messages="formInputDecimalNumber[name].$error" data-ng-if="formInputDecimalNumber[name].$dirty">
+    <span class="help-block" data-ng-message="required"> {{requiredMessage}} </span>
+    <span class="help-block" data-ng-message="customError"> {{customErrorMessage}} </span>
+  </div>
+</div>

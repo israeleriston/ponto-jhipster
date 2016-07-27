@@ -1,0 +1,48 @@
+<div class="container">
+	<title-subpage description="Cadastro de Empresas" icon="glyphicon-briefcase"></title-subpage>
+	<form role="form" data-ng-submit="vm.save()" name="formEmpresa" novalidate>
+		<div class="col-xs-12 col-sm-8 col-md-8">
+			<input-description object="vm.empresa.razaoSocial" label="Razão Social" name="razaoSocial" is-required="true" is-upper-case="true"></input-description>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-md-4">
+			<input-cnpj data-object="vm.empresa.cnpj" is-required="true"></input-cnpj>
+		</div>
+		<div class="clearfix visible-md-block visible-lg-block"></div>
+		<div class="col-xs-12 col-sm-12 col-md-4">
+			<input-description object="vm.empresa.nomeFantasia" label="Nome Fantasia" name="nomeFantasia" is-required="true" is-upper-case="true"></input-description>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<input-description object="vm.empresa.inscricaoEstadual" label="Inscrição Estadual" name="inscricaoEstadual" is-required="true" is-upper-case="true"></input-description>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<input-description object="vm.empresa.inscricaoMunicipal" label="Inscrição Municipal" name="inscricaoMunicipal" is-required="true" is-upper-case="true"></input-description>
+		</div>
+		<div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
+		<div class="col-xs-12 col-sm-12 col-md-6">
+			<input-email data-object="vm.empresa.email" data-is-required="true" data-name="email" data-label="Email"></input-email>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-6">
+      <div class="form-group {{formEmpresa.matriz.$dirty && formEmpresa.matriz.$viewValue && !vm.isValidMatriz() ? 'has-error' : ''}} has-feedback">
+        <label class="control-label">Matriz</label>
+        <input autocomplete="off" type="text" name="matriz" data-ng-model="vm.matriz" typeahead="e as e.nomefantasia for e in vm.getMatrizes($viewValue)" class="form-control" data-capitalize>
+        <span class="glyphicon glyphicon-ok form-control-feedback" data-ng-show="formEmpresa.matriz.$valid"></span>
+        <div data-ng-if="formEmpresa.matriz.$dirty && formEmpresa.matriz.$viewValue && !vm.isValidMatriz()">
+          <span class="help-block">Selecione uma Empresa corretamente</span>
+        </div>
+      </div>
+		</div>
+		<div class="col-md-7">
+			<endereco enderecos="vm.empresa.enderecos" is-required="true"></endereco>
+		</div>
+		<div class="col-md-5">
+			<telefone telefones="vm.empresa.telefones" is-required="true"></telefone>
+		</div>
+		<div class="clearfix">&nbsp;</div>
+		<div class="col-xs-12 col-sm-offset-6 col-sm-3 col-md-offset-8 col-md-2">
+			<action-button action-type="list" action-verify-name="LISTAR_EMPRESA" type-button="button" label="Voltar" ng-click="vm.backToList()"></action-button>
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-2">
+			<action-button action-type="create" action-verify-name="CRIAR_EMPRESA" type-button="submit" label="Salvar" is-disabled="formEmpresa.$invalid || !vm.hasTelefoneEndereco()"></action-button>
+		</div>
+	</form>
+</div>

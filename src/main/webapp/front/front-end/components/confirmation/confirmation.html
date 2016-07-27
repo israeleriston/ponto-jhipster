@@ -1,0 +1,13 @@
+<div class="modal-header" style="background-color: #f0ad4e; padding: 8px; border-top-left-radius: 5px;
+    border-top-right-radius: 5px;">
+	<h4 class="modal-title">
+		<strong><span class="glyphicon glyphicon-warning-sign"></span> {{ vm.confirm.header }}</strong>
+	</h4>
+</div>
+<div class="modal-body">
+	<p>{{ vm.confirm.body }}</p>
+</div>
+<div class="modal-footer" style="border-top: 0; padding-top: 0;">
+		<button data-ng-click="vm.yes()" class="btn btn-success">Confirmar</button>
+		<button data-ng-click="vm.cancel()" class="btn btn-danger">Cancelar</button>
+</div>

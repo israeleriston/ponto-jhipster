@@ -1,0 +1,30 @@
+<div class="container-fluid withoutPadding div-margin-top">
+  <h2 class="withoutMargin form-group" data-ng-class="{'required' : isRequired}">
+    <small class="control-label">Endereços</small>
+    <button type="button" class="btn btn-primary pull-right" data-ng-click="openModal()"><span class="glyphicon glyphicon-road"></span>  Novo Endereço</button>
+  </h2>
+  <table
+    class="table table-row-resize table-striped position-margin-top-default">
+    <thead>
+      <th class="col-xs-8 col-sm-9 col-md-10 col-lg-9">Logradouro</th>
+      <th class="col-xs-4 col-sm-3 col-md-2 col-lg-3">Ações</th>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="endereco in enderecos">
+        <td data-ng-bind="endereco | mascararEnderecoNaLista"></td>
+        <td class="pull-right">
+          <button type="button" class="btn btn-warning btn-sm" data-ng-click="editEndereco(endereco)">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </button>
+          <button type="button" class="btn btn-danger btn-sm" data-ng-click="removeEndereco(endereco)">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+          <button type="button" class="btn btn-info btn-sm" title="Copiar endereço" popover-placement="right" 
+          uib-popover-template="templatePopover" popover-append-to-body="true" popover-trigger="focus">
+            <span class="glyphicon glyphicon-duplicate"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

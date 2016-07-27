@@ -1,0 +1,13 @@
+<div class="col-md-4 centered" data-ng-hide="vm.empresaIsSelected">
+  <div class="panel panel-info">
+    <div class="panel-heading">Selecione a empresa</div>
+    <div class="panel-body">
+      <form class="text-center" name="formSelecaoDeEmpresa" data-ng-submit="vm.empresaSelected()">
+         <input-typeahead object="vm.empresa" label="Empresa" func="vm.getEmpresas" name="empresa" is-required="true" field="nomefantasia"></input-typeahead>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default" data-ng-disabled="formSelecaoDeEmpresa.$invalid">Selecionar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

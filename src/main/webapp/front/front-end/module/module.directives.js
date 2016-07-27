@@ -1,0 +1,41 @@
+(function() {
+	'use strict';
+	angular
+		.module('core.directives', [
+			'ActionVerifyDirective',
+			'AddButtonRegisteringDirective',
+			'CepDirectives',
+			'EnderecoDirectives',
+			'FormButtonsSalvarVoltarDirective',
+			'InputFocusDirective',
+			'JustNumbersDirective',
+			'TelefoneDirectives',
+			'CnpjMaskDirective',
+			'RadioGroupDirective',
+			'InputDateDirective',
+            	'ValidationTypeaheadDirective',
+            	'CapitalizeDirective',
+                  'InputShortDescriptionDirective',
+                  'InputDateDirective',
+                  'InputNumberDirective',
+                  'InputDecimalNumberDirective',
+                  'InputTypeaheadDirective',
+                  'ListPaginationDirective',
+                  'InputSearchDirective',
+                  'RecordCounterDirective',
+                  'TitleSubpageDirective',
+                  'ActionButtonDirective',
+                  'InputCurrencyDirective',
+                  'CreateButtonDirective',
+                  'InputDescriptionDirective',
+                  'InputLongDescriptionDirective',
+                  'InputCpfDirective',
+                  'InputCnpjDirective',
+                  'InputEmailDirective',
+                  'DecimalNumberDirective',
+                  'ChangeOnKeyUpDirective',
+                  'InputTextAreaDirective',
+                  'InputImageDirective',
+                  'ng-mfb'
+	])
+}());

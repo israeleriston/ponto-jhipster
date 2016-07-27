@@ -1,0 +1,77 @@
+<div class="container">
+  <h3 class="text-center">
+    <span class="glyphicon glyphicon-user"></span> Cadastro de Usuário
+  </h3>
+  <form role="form" data-ng-submit="vm.save()" name="formUsuario">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="form-group {{formUsuario.nome.$error.minlength || formUsuario.nome.$error.pattern ? 'has-error' : ''}} has-feedback required">
+        <label class="control-label">Nome</label>
+        <input autocomplete="off" type="text" class="form-control" data-ng-minlength="3" data-ng-maxlength="50" maxlength="50" data-ng-pattern="/^([a-zA-z\W\s]+)$/" name="nome" data-ng-model="vm.usuario.nome" required="required" data-capitalize>
+        <span class="glyphicon glyphicon-ok form-control-feedback" data-ng-show="formUsuario.nome.$valid"></span>
+        <div data-ng-messages="formUsuario.nome.$error" data-ng-if="formUsuario.nome.$dirty">
+          <span class="help-block" data-ng-message="pattern">Nome deve conter apenas letras.</span>
+          <span class="help-block" data-ng-message="minlength">Nome muito curto.</span>
+		  <span class="help-block" data-ng-message="required">Nome obrigatório.</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="form-group {{formUsuario.sobrenome.$error.minlength || formUsuario.sobrenome.$error.pattern ? 'has-error' : ''}} has-feedback required">
+        <label class="control-label">Sobrenome</label>
+        <input autocomplete="off" type="text" class="form-control" data-ng-minlength="3" data-ng-maxlength="50" maxlength="50" data-ng-pattern="/^([a-zA-z\W\s]+)$/" name="sobrenome" data-ng-model="vm.usuario.sobrenome" required="required" data-capitalize>
+          <span class="glyphicon glyphicon-ok form-control-feedback" data-ng-show="formUsuario.sobrenome.$valid"></span>
+        <div data-ng-messages="formUsuario.sobrenome.$error" data-ng-if="formUsuario.sobrenome.$dirty">
+          <span class="help-block" data-ng-message="pattern">Sobrenome deve conter apenas letras.</span>
+          <span class="help-block" data-ng-message="minlength">Sobrenome muito curto.</span>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix visible-sm-block"></div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <input-email data-object="vm.usuario.email" data-is-required="true" data-name="email" data-label="Email"></input-email>
+    </div>
+    <div class="clearfix visible-md-block visible-lg-block"></div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <input-short-description data-object="vm.usuario.login" data-max-length="30" data-is-required="true" data-name="login" data-label="Login" is-upper-case="false"></input-short-description>
+    </div>
+    <div class="clearfix visible-sm-block"></div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="form-group {{formUsuario.senha.$error.pattern || vm.senhaEhDiferenteDeConfirmacao() ? 'has-error' : ''}} has-feedback required">
+        <label class="control-label">Senha</label>
+        <input autocomplete="off" type="password" class="form-control" data-ng-pattern="/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$/" data-ng-maxlength="50" maxlength="50" name="senha" data-ng-model="vm.usuario.senha" required="required">
+          <span class="glyphicon glyphicon-ok form-control-feedback" data-ng-show="formUsuario.senha.$valid && !vm.senhaEhDiferenteDeConfirmacao()"></span>
+        <div data-ng-messages="formUsuario.senha.$error" data-ng-if="formUsuario.senha.$dirty">
+          <span class="help-block" data-ng-message="pattern">Senha é de no mínimo 6 caracteres, deve conter 1 letra maiúscula, 1 minúscula e 1 número, no mínimo e sem espaços vazios.</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="form-group {{formUsuario.confirmacaoDeSenha.$error.pattern || vm.senhaEhDiferenteDeConfirmacao() ? 'has-error' : ''}} has-feedback required">
+        <label class="control-label">Confirmar Senha</label>
+        <input autocomplete="off" type="password" class="form-control" data-ng-pattern="/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$/" data-ng-maxlength="50" maxlength="50" name="confirmacaoDeSenha" data-ng-model="vm.usuario.confirmacaoDeSenha" required="required">
+          <span class="glyphicon glyphicon-ok form-control-feedback" data-ng-show="formUsuario.confirmacaoDeSenha.$valid
+           && !vm.senhaEhDiferenteDeConfirmacao()"></span>
+          <span class="help-block" data-ng-show="vm.senhaEhDiferenteDeConfirmacao()">As senhas estão diferentes. Favor preencher corretamente.</span>
+        <div data-ng-messages="formUsuario.confirmacaoDeSenha.$error" data-ng-if="formUsuario.confirmacaoDeSenha.$dirty">
+          <span class="help-block" data-ng-message="pattern">Senha é de no mínimo 6 caracteres, deve conter 1 letra maiúscula, 1 minúscula e 1 número, no mínimo e sem espaços vazios.</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-offset-8 col-sm-2">
+      <div class="form-group">
+        <button type="button" class="btn btn-link form-control"
+          data-ng-click="vm.backToList()">
+          <span class="glyphicon glyphicon-backward"></span> Voltar
+        </button>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-group">
+        <button type="submit" class="btn btn-success form-control"
+          data-ng-disabled="formUsuario.$invalid || vm.senhaEhDiferenteDeConfirmacao()">
+          <span class="glyphicon glyphicon-floppy-disk"></span> Salvar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

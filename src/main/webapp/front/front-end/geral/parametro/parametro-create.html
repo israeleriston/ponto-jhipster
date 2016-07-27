@@ -1,0 +1,41 @@
+<div class="container">
+  <h3 class="text-center">{{vm.descriptionTitle}}</h3>
+	<form role="form" ng-submit="vm.save()" name="formParametro">
+		<div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 form-group required">
+      <label for="" class="control-label">Nome</label>
+      <select data-ng-model="vm.parametro.nome" name="nome" class="form-control" data-ng-options="nomeParametro for nomeParametro in vm.parametros" data-change-on-keyup required="required"></select>
+		</div>
+		<div class="col-xs-4 col-sm-6 col-md-6 col-lg-6 form-group required">
+      <label for="" class="control-label">Tipo</label>
+        <select data-ng-model="vm.parametro.tipoValor" name="nome" class="form-control" data-ng-options="tipoValor.key as tipoValor.value for tipoValor in vm.valores" data-ng-change="vm.removerValor()" data-change-on-keyup required="required">
+      </select>
+		</div>
+		<div class="col-xs-4 col-sm-6 col-md-6 col-lg-6 form-group" ng-switch on="vm.parametro.tipoValor">
+			<input-short-description data-ng-switch-when="STRING" object="vm.parametro.valor" label="Valor alfanumérico" name="valor" is-required="true" min-length="1" max-length="" is-upper-case="true"></input-short-description>
+      <input-date data-ng-switch-when="DATE" object="vm.parametro.valor" name="valor" label="Valor da data" is-required="true"></input-date>
+      <input-decimal-number data-ng-switch-when="BIGDECIMAL" object="vm.parametro.valor" label="Valor decimal" name="valor" is-required="true" min-length="1"></input-decimal-number>
+      <div class="form-group has-feedback required" data-ng-switch-when="ENTITY_ID" data-ng-class="{'has-error': formParametro.valor.$invalid && formParametro.valor.$dirty}">
+        <label for="" class="control-label">Valor do id</label>
+        <input autocomplete="off" type="text" class="form-control" data-ng-model="vm.parametro.valor" name="valor" required="true" data-ng-pattern="vm.patternUuid" maxlength="36">
+        <span class="form-control-feedback" data-ng-if="formParametro.valor.$valid" data-ng-class="{'glyphicon glyphicon-ok' : formParametro.valor.$valid}"></span>
+        <div data-ng-messages="formParametro.valor.$error" data-ng-if="formParametro.valor.$dirty">
+          <span class="help-block" data-ng-message="pattern"> Valor de ID incorreto </span>
+          <span class="help-block" data-ng-message="required"> Este campo é requerido </span>
+        </div>
+      </div>
+      <input-short-description ng-switch-default object="vm.parametro.valor" is-disabled="true" label="Valor" is-upper-case="true"></input-short-description>
+		</div>
+    <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6 form-group">
+      <input-date object="vm.parametro.inicioVigencia" name="inicioVigencia" label="Início vigência" min-date="vm.minDate" is-required="true" is-disabled="vm.isEditing()"></input-date>
+    </div>
+    <div class="col-xs-8 col-sm-6 col-md-12 col-lg-12 form-group">
+      <input-typeahead object="vm.parametro.empresa" func="vm.getEmpresaFindByUsuario" field="razaosocial" name="empresa" label="Empresa" is-disabled="vm.isEditing()" is-required="true"></input-typeahead>
+    </div>
+		<div class="col-xs-12 col-sm-offset-6 col-sm-3 col-md-offset-8 col-md-2 form-group">
+			<action-button action-type="list" action-verify-name="LISTAR_PARAMETRO" type-button="button" label="Voltar" ng-click="vm.backToList()"></action-button>
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-2 form-group">
+			<action-button action-type="create" action-verify-name="CRIAR_PARAMETRO" type-button="submit" label="Salvar" is-disabled="formParametro.$invalid"></action-button>
+		</div>
+	</form>
+</div>

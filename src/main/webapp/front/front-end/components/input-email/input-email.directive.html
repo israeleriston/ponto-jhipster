@@ -1,0 +1,11 @@
+<div class="form-group has-feedback" data-ng-form="formInputEmail" data-ng-class="{'has-error': formInputEmail[name].$invalid && formInputEmail[name].$dirty || !emailIsValidAfterCharacterArroba(formInputEmail[name])}">
+  <label class="control-label" data-ng-show="showLabel">{{label}}</label>
+  <input autocomplete="off" type="email" class="form-control" placeholder="email@email.com" data-ng-minlength="minLength" data-ng-maxlength="maxLength" name="{{name}}" data-ng-model="object" maxlength="{{maxLength}}" data-ng-required="isRequired" data-capitalize="false" data-ng-ddisabled="isDisabled" data-ng-change="verifyEmailValidAfterCharacterArroba(formInputEmail[name])">
+    <span class="form-control-feedback" data-ng-if="formInputEmail[name].$valid" data-ng-class="{'glyphicon glyphicon-ok' : formInputEmail[name].$valid}"></span>
+  <div data-ng-messages="formInputEmail[name].$error" data-ng-if="formInputEmail[name].$dirty || !emailIsValidAfterCharacterArroba(formInputEmail[name])">
+    <span class="help-block" data-ng-message="minlength"> {{minLengthMessage}} </span>
+    <span class="help-block" data-ng-message="maxlength"> {{maxLengthMessage}} </span>
+    <span class="help-block" data-ng-message="required"> {{requiredMessage}} </span>
+    <span class="help-block" data-ng-message="email"> {{invalidEmail}} </span>
+  </div>
+</div>

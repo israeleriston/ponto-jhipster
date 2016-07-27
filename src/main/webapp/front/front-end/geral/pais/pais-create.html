@@ -1,0 +1,24 @@
+<div class="container">
+	<title-subpage description="Cadastro de País" icon="glyphicon-globe"></title-subpage>
+	<form role="form" ng-submit="vm.save()" name="formPais">
+		<div class="col-xs-12 col-sm-8 col-md-5">
+			<input-short-description object="vm.pais.nome" label="Nome" name="pais" is-required="true" is-upper-case="true"></input-short-description>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-2">
+			<input-short-description object="vm.pais.siglaDuasLetras" label="Sigla (2 letras)" name="siglaDuasLetras" is-required="true" max-length="2" min-length="2" is-upper-case="true"></input-short-description>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-2">
+			<input-short-description object="vm.pais.siglaTresLetras" label="Sigla (3 letras)" name="siglaTresLetras" is-required="true" max-length="3" min-length="3" is-upper-case="true"></input-short-description>
+		</div>
+		<div class="col-xs-4 col-sm-4 col-md-3">
+			<input-short-description object="vm.pais.codigoDeDiscagem" label="Código de discagem" name="codigoDeDiscagem" is-required="true" max-length="3" min-length="3" is-upper-case="true"></input-short-description>
+		</div>
+		<div
+			class="col-xs-12 col-sm-offset-6 col-sm-3 col-md-offset-8 col-md-2 form-group">
+			<action-button action-type="list" action-verify-name="LISTAR_PAIS" type-button="button" label="Voltar" ng-click="vm.backToList()"></action-button>
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-2 form-group">
+			<action-button action-type="create" action-verify-name="CRIAR_PAIS" type-button="submit" label="Salvar" is-disabled="formPais.$invalid"></action-button>
+		</div>
+	</form>
+</div>

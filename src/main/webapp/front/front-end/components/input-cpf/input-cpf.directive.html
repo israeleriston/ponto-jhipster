@@ -1,0 +1,9 @@
+<div class="form-group has-feedback" data-ng-form="formInputCpf" data-ng-class="{'has-error': formInputCpf.cpf.$invalid && formInputCpf.cpf.$dirty}">
+  <label class="control-label">CPF</label>
+  <input autocomplete="off" type="text" class="form-control" data-ng-minlength="minLength" data-ng-maxlength="maxLength" name="cpf" data-ng-model="object" maxlength="{{maxLength}}" data-ng-required="isRequired" cpf-mask data-ng-disabled="isDisabled">
+    <span class="form-control-feedback" data-ng-if="formInputCpf.cpf.$valid" data-ng-class="{'glyphicon glyphicon-ok' : formInputCpf.cpf.$valid && formInputCpf.cpf.$dirty}"></span>
+  <div data-ng-messages="formInputCpf.cpf.$error" data-ng-if="formInputCpf.cpf.$dirty">
+    <span class="help-block" data-ng-message="invalidCpf"> {{invalidCpf}} </span>
+    <span class="help-block" data-ng-message="required"> {{requiredMessage}} </span>
+  </div>
+</div>

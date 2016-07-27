@@ -1,0 +1,63 @@
+<div class="container">
+	<h3 class="text-center position-margin-top-default">
+		<span class="glyphicon glyphicon-list"></span> Listagem de Perfis de
+		Acesso
+	</h3>
+	<form role="form"
+		data-ng-submit="vm.findPerfisDeAcesso(vm.parametroBusca)"
+		data-ng-init="vm.parametroBusca = ''">
+		<div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-md-offset-2 col-lg-offset-3 col-lg-6 col-lg-offset-3">
+			<label class="control-label"></label>
+			<div class="inner-addon right-addon">
+				<i class="glyphicon glyphicon-search"></i> <input autocomplete="off" type="text"
+					class="form-control" id="searchField"
+					data-ng-model="vm.parametroBusca" placeholder="Pesquisar" />
+			</div>
+		</div>
+	</form>
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<div class="help-block position-margin-top-default">{{vm.perfisDeAcesso.data.length}}
+			de {{vm.perfisDeAcesso.recordCount}} registros</div>
+	</div>
+	<div class="table-responsive col-xs-12 col-sm-12 col-md-12">
+		<table
+			class="table table-row-resize table-striped position-margin-top-default">
+			<thead>
+				<th class="col-xs-8 col-sm-10 col-md-10">Nome</th>
+				<th class="col-xs-4 col-sm-2 col-md-2">Ações</th>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="perfil in vm.perfisDeAcesso.data">
+					<td data-ng-bind="perfil.nome"></td>
+					<td>
+						<button type="button" class="btn btn-warning btn-sm" action-verify="EDITAR_PERFIL_DE_ACESSO"
+							data-ng-click="vm.edit(perfil)">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+						<button type="button" class="btn btn-danger btn-sm" action-verify="REMOVER_PERFIL_DE_ACESSO"
+							data-ng-click="vm.remove(perfil,'')">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center col-xs-12 col-sm-12 col-md-12">
+		<pagination boundary-links="true" num-pages="vm.perfisDeAcesso.count"
+			total-items="vm.perfisDeAcesso.recordCount" items-per-page="10"
+			data-ng-model="vm.pageNumber"
+			max-size="5"
+			ng-change="vm.findPerfisDeAcesso(vm.parametroBusca, vm.pageNumber)"
+			class="pagination-lg position-margin-top-default"
+			previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+			last-text="&raquo;"> </pagination>
+	</div>
+</div>
+<div class="container-fluid">
+	<button class="col-xs-12 col-sm-12 btn-circle btn-xl btn btn-primary" action-verify="CRIAR_PERFIL_DE_ACESSO"
+		type="button" title="Cadastrar um novo perfil de acesso"
+		data-ng-click="vm.create()">
+		<i class="glyphicon glyphicon-plus"></i>
+	</button>
+</div>
